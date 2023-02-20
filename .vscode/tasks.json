@@ -1,0 +1,29 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "command": "pnpm format && pnpm done",
+      "problemMatcher": [],
+      "label": "format",
+      "detail": "Format all code",
+      "group": "build"
+    },
+    {
+      "type": "shell",
+      "command": "pnpm i && pnpm done || pnpm error",
+      "label": "install",
+      "detail": "install all dependencies",
+      "group": "build"
+    },
+    {
+      "type": "shell",
+      "command": "(cd tasks/js-hello-world && pnpm test) && pnpm done || pnpm error",
+      "label": "test: js-hello-world",
+      "detail": "test js-hello-world",
+      "group": "test"
+    }
+  ]
+}

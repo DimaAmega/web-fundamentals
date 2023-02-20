@@ -1,0 +1,29 @@
+{
+  "name": "web-fundamentals",
+  "version": "1.0.0",
+  "description": "## Настройка репозитория",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "format": "prettier --write .",
+    "done": "echo \"\\x1b[36mGood job 🥳\"",
+    "error": "echo \"\\x1b[31mTry again 🥲\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DimaAmega/web-fundamentals.git"
+  },
+  "author": "DimaAmega",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DimaAmega/web-fundamentals/issues"
+  },
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=7"
+  },
+  "homepage": "https://github.com/DimaAmega/web-fundamentals#readme",
+  "devDependencies": {
+    "prettier": "^2.8.4"
+  }
+}
