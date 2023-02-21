@@ -6,7 +6,6 @@
     {
       "type": "shell",
       "command": "pnpm format && pnpm done",
-      "problemMatcher": [],
       "label": "format",
       "detail": "Format all code",
       "group": "build"
