@@ -1,7 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap');
+
 * {
   margin: 0;
   padding: 0;
 }
+
 body {
+  font-family: 'Lora', serif;
   text-align: center;
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 48%;
+  height: 59%;
+}
+
+main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#airtable {
+  box-shadow: 14px 17px 35px -30px rgba(0, 0, 0, 0.7);
 }
