@@ -1,5 +1,7 @@
 # Web-fundamentals
 
+[Таблица с результатами](https://dimaamega.github.io/web-fundamentals/)
+
 ## Настройка репозитория
 
 ```bash
