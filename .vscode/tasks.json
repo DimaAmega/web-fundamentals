@@ -5,24 +5,21 @@
   "tasks": [
     {
       "type": "shell",
-      "command": "pnpm format && pnpm done",
+      "command": "pnpm --silent format && pnpm --silent print-good-job",
       "label": "format",
-      "detail": "Format all code",
-      "group": "build"
+      "detail": "Format all code"
     },
     {
       "type": "shell",
-      "command": "pnpm i && pnpm done || pnpm error",
+      "command": "pnpm install && pnpm --silent print-good-job",
       "label": "install",
-      "detail": "install all dependencies",
-      "group": "build"
+      "detail": "install all dependencies"
     },
     {
       "type": "shell",
-      "command": "(cd tasks/js-hello-world && pnpm test) && pnpm done || pnpm error",
+      "command": "(cd tasks/js-hello-world && pnpm --silent test) && pnpm --silent print-good-job || pnpm --silent print-try-again",
       "label": "test: js-hello-world",
-      "detail": "test js-hello-world",
-      "group": "test"
+      "detail": "test js-hello-world"
     }
   ]
 }

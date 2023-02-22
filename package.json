@@ -6,8 +6,8 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "format": "prettier --write .",
-    "done": "echo \"\\x1b[36mGood job 🥳\"",
-    "error": "echo \"\\x1b[31mTry again 🥲\""
+    "print-good-job": "echo \"\\x1b[36mGood job 🥳\"",
+    "print-try-again": "echo \"\\x1b[31mTry again 🥲\""
   },
   "repository": {
     "type": "git",
