@@ -45,5 +45,6 @@ header > h1 {
 }
 
 #airtable {
+  margin-top: 10px;
   box-shadow: 14px 17px 35px -30px rgba(0, 0, 0, 0.7);
 }
