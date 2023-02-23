@@ -1,12 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@500&display=swap');
 
-* {
+*,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: 'Lora', serif;
+  font-family: 'Signika Negative', sans-serif;
   text-align: center;
 }
 
@@ -20,8 +26,22 @@ body {
 }
 
 main {
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
+  margin-top: 100px;
+  font-size: 20px;
+}
+
+header {
+  color: white;
+  background: #1a57e0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+header > h1 {
+  padding: 10px;
 }
 
 #airtable {
