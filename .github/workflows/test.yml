@@ -13,8 +13,9 @@ jobs:
     steps:
       - name: Check user
         run: |
-          echo GH_USER=$GH_USER
-          if [ "$(echo '|dimaamega|skeletron143|' | grep '|'$GH_USER'|' || true)" == "" ]; then
+          AUTHOR_PR=${{ github.event.pull_request.user.login }}
+          echo AUTHOR_PR=$AUTHOR_PR
+          if [ "$(echo '|dimaamega|skeletron143|' | grep '|'$AUTHOR_PR'|' || true)" == "" ]; then
               echo "user $GH_USER has no permissions to perform this action!"
               exit 1
           fi
