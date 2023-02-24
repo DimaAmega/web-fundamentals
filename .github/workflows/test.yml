@@ -1,0 +1,49 @@
+name: Test
+
+on:
+  pull_request:
+    - main
+
+jobs:
+  test:
+    name: 'Test'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Checkout shadow
+        uses: actions/checkout@v3
+        with:
+          repository: DimaAmega/web-fundamentals-shadow
+          token: ${{ secrets.SECRET_TOKEN }}
+          path: .shadow
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.0.1
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+
+      - name: Install dependencies
+        shell: bash
+        run: pnpm install
+
+      - name: Install dependencies shadow
+        shell: bash
+        run: cd .shadow && pnpm install
+
+      - name: Copy tests
+        shell: bash
+        run: cd .shadow && pnpm ci-copy-all-tests-up-level
+
+      - name: Run tests
+        shell: bash
+        run: pnpm test-all
