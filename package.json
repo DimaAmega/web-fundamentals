@@ -7,7 +7,8 @@
     "preinstall": "npx only-allow pnpm",
     "format": "prettier --write .",
     "print-good-job": "echo \"\\x1b[36mGood job 🥳\"",
-    "print-try-again": "echo \"\\x1b[31mTry again 🥲\""
+    "print-try-again": "echo \"\\x1b[31mTry again 🥲\"",
+    "test-all": "pnpm --filter \"*\" --workspace-concurrency=1 test"
   },
   "repository": {
     "type": "git",
