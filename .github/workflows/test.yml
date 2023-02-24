@@ -14,9 +14,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Check token
+      - name: Cat
         shell: bash
-        run: echo ${{ secrets.SECRET_TOKEN }}
+        run: cat tasks/js-hello-world/hello-world.js
 
       - name: Checkout shadow
         uses: actions/checkout@v3
