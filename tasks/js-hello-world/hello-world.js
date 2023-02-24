@@ -1,4 +1,5 @@
 function helloWorld() {
+  // comment
   return 'hello world'
 }
 
