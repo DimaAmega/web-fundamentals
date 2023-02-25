@@ -72,7 +72,7 @@ function configGh() {
   try {
     ex('gh auth status')
   } catch (error) {
-    ex('gh auth login -s user')
+    ex('gh auth login -p https -s user -w')
     ex('gh auth status')
   }
   logHeader('gh configurated')
@@ -114,7 +114,7 @@ installCLI({ cliName: 'node', install: installNode, majorRequired: 16 })
 installCLI({ cliName: 'pnpm', install: installPnpm, majorRequired: 7 })
 installCLI({ cliName: 'gh', install: installGh, majorRequired: 2 })
 configGh()
-forkAndCloneRepo()
-configRepo()
+// forkAndCloneRepo()
+// configRepo()
 
 logHeader('DONE')
