@@ -1,4 +1,4 @@
-# Web-fundamentals
+# Web-fundamentalssss
 
 [Таблица с результатами](https://dimaamega.github.io/web-fundamentals/)
 
