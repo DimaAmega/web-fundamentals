@@ -16,7 +16,7 @@ jobs:
           AUTHOR_PR=${{ github.event.pull_request.user.login }}
           echo AUTHOR_PR=$AUTHOR_PR
 
-          IS_ALLOW=$(curl -s "https://api.airtable.com/v0/appXFam00FE5hN2lS/sbpau-2023?view=full&fields%5B%5D=Name" \
+          IS_ALLOW=$(curl -s "https://api.airtable.com/v0/appXFam00FE5hN2lS/sbpau-2023?view=full&fields%5B%5D=github-nickname" \
           -H "Authorization: Bearer ${{ secrets.AIRTABLE_TOKEN }}" | \
           jq ".records[] | .fields.github-nickname" | grep "$AUTHOR_PR" || true)
 
