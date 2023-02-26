@@ -29,7 +29,7 @@ ex(`cp -r ${tmpFolder}/** tasks/${task}`)
 try {
   ex(`git add -A && git commit -m "fixed"`)
   ex(`git push origin ${taskBranch}`)
-  ex(`gh pr create --title ${task} --body ""`)
+  ex(`gh pr create --title $(gh api user | jq -r '.login'):${task} --body ""`)
 } catch (error) {
 } finally {
   ex(`git checkout ${stashBranch}`)
