@@ -98,7 +98,7 @@ function configRepo() {
     `cd web-fundamentals \
     && git config user.name "${login}" \
     && git config user.email "${email}" \
-    && git config pull.rebase true \
+    && git config merge.ff only \
     && gh repo set-default DimaAmega/web-fundamentals`
   )
 
