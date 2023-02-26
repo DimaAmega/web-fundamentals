@@ -33,7 +33,8 @@ function installGit() {
 }
 
 function installNode() {
-  ex('n install 16')
+  const cmdSudo = 'sudo n install 19'
+  ex(`(${cmdSudo.replace(/sudo/g, '')}) || (${cmdSudo})`)
   ex(`node ${__filename}`)
   exit(0)
 }
@@ -110,7 +111,7 @@ function configRepo() {
 ///////////////
 
 installCLI({ cliName: 'git', install: installGit, majorRequired: 2 })
-installCLI({ cliName: 'node', install: installNode, majorRequired: 16 })
+installCLI({ cliName: 'node', install: installNode, majorRequired: 19 })
 installCLI({ cliName: 'pnpm', install: installPnpm, majorRequired: 7 })
 installCLI({ cliName: 'gh', install: installGh, majorRequired: 2 })
 configGh()
