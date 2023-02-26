@@ -1,6 +1,4 @@
 {
-  // See https://go.microsoft.com/fwlink/?LinkId=733558
-  // for the documentation about the tasks.json format
   "version": "2.0.0",
   "tasks": [
     {
@@ -14,6 +12,12 @@
       "command": "pnpm install && pnpm --silent print-good-job",
       "label": "install",
       "detail": "install all dependencies"
+    },
+    {
+      "type": "shell",
+      "command": "git pull upstream main",
+      "label": "Pull from upstram",
+      "detail": "run `git pull upstream main` command"
     },
     {
       "type": "shell",
