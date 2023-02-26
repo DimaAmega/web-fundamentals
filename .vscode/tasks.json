@@ -15,9 +15,9 @@
     },
     {
       "type": "shell",
-      "command": "git pull upstream main",
+      "command": "git pull --ff-only upstream main && git push origin main",
       "label": "Pull from upstram",
-      "detail": "run `git pull upstream main` command"
+      "detail": "pull from upstream and push to the origin"
     },
     {
       "type": "shell",
