@@ -18,7 +18,7 @@ jobs:
 
           IS_ALLOW=$(curl -s "https://api.airtable.com/v0/appXFam00FE5hN2lS/sbpau-2023?view=full&fields%5B%5D=github-nickname" \
           -H "Authorization: Bearer ${{ secrets.AIRTABLE_TOKEN }}" | \
-          jq ".records[] | .fields.github-nickname" | grep "$AUTHOR_PR" || true)
+          jq ".records[] | .fields.\"github-nickname\"" | grep "$AUTHOR_PR" || true)
 
           if [ "$IS_ALLOW" == "" ]; then
               echo "user $AUTHOR_PR has no permissions to perform this action!"
