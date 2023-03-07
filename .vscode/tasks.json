@@ -2,28 +2,33 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "type": "shell",
-      "command": "pnpm --silent format && pnpm --silent print-good-job",
+      "type": "npm",
       "label": "format",
-      "detail": "Format all code"
+      "script": "format",
+      "detail": "Format all code",
+      "problemMatcher": []
     },
     {
-      "type": "shell",
-      "command": "pnpm install && pnpm --silent print-good-job",
+      "type": "npm",
       "label": "install",
-      "detail": "install all dependencies"
+      "script": "install",
+      "detail": "install all dependencies",
+      "problemMatcher": []
     },
     {
       "type": "shell",
       "command": "git pull --ff-only upstream main && git push origin main",
       "label": "Pull from upstram",
-      "detail": "pull from upstream and push to the origin"
+      "detail": "pull from upstream and push to the origin",
+      "problemMatcher": []
     },
     {
-      "type": "shell",
-      "command": "(cd tasks/js-hello-world && pnpm --silent test) && pnpm --silent print-good-job || pnpm --silent print-try-again",
+      "type": "npm",
+      "path": "tasks/js-hello-world",
+      "script": "test",
       "label": "test: js-hello-world",
-      "detail": "test js-hello-world"
+      "detail": "test js-hello-world task",
+      "problemMatcher": []
     }
   ]
 }
