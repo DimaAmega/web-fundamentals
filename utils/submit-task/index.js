@@ -3,8 +3,11 @@ const { execSync } = require('child_process')
 const ex = (c) => execSync(c, { stdio: 'inherit' })
 const { v4: uuid } = require('uuid')
 const genUuid = () => uuid().split('-')[0]
+const commandLineArgs = require('command-line-args')
+const options = commandLineArgs([{ name: 'task', alias: 't', type: String }])
 
-const task = 'js-hello-world'
+const { task } = options
+
 const taskBranch = `submit/${task}`
 const stashBranch = `stash-${genUuid()}`
 const tmpFolder = `.tmp-${genUuid()}`
