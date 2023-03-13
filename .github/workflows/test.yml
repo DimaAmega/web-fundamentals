@@ -6,10 +6,12 @@ on:
       - 'main'
 
 jobs:
-  test:
-    name: 'Test'
+  prepare:
+    name: Check user
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    outputs:
+      branch-name: ${{ steps.branch-name.outputs.name }}
+      student-name: ${{ steps.student-name.outputs.name }}
     steps:
       - name: Check user to perform action
         run: |
@@ -24,6 +26,34 @@ jobs:
               echo "user $AUTHOR_PR has no permissions to perform this action!"
               exit 1
           fi
+
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Define branch name
+        id: branch-name
+        run: |
+          echo "name=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
+
+      - name: Define student name
+        id: student-name
+        run: |
+          AUTHOR_PR=${{ github.event.pull_request.user.login }}
+          echo "name=$AUTHOR_PR" >> $GITHUB_OUTPUT
+
+  test:
+    name: 'Test'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    needs: prepare
+    steps:
+      - name: Echo prepare vars
+        shell: bash
+        run: |
+        echo student-name: ${{ needs.prepare.outputs.student-name }} branch-name:${{ needs.prepare.outputs.branch-name }}
+
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
@@ -59,6 +89,15 @@ jobs:
         shell: bash
         run: cd .shadow && pnpm ci-copy-all-tests-up-level
 
-      - name: Run tests
+      - name: Run test
         shell: bash
-        run: pnpm test-all
+        run: pnpm ci-test-selected --task ${{ needs.prepare.outputs.branch-name }}
+
+      - name: Mark task as solved
+        shell: bash
+        run: cd .shadow && pnpm mark-task-solved --student ${{ needs.prepare.outputs.student-name }} --task ${{ needs.prepare.outputs.branch-name }}
+        env:
+          AIRTABLE_BASE_ID: appXFam00FE5hN2lS
+          STUDENTS_TABLE: sbpau-2023
+          TASKS_TABLE: tasks-2023
+          AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_TOKEN }}
