@@ -10,7 +10,7 @@ jobs:
     name: Check user
     runs-on: ubuntu-latest
     outputs:
-      task-name: ${{ steps.branch-name.outputs.current_branch }}
+      task-name: ${{ steps.task-name.outputs.name }}
       student-name: ${{ steps.student-name.outputs.name }}
     steps:
       - name: Check user to perform action
@@ -31,10 +31,15 @@ jobs:
         id: branch-name
         uses: tj-actions/branch-names@v6
 
+      - name: Define task name
+        id: task-name
+        run: |
+          echo "name=${${{ steps.branch-name.outputs.current_branch }}##submit/}"
+          echo "name=${${{ steps.branch-name.outputs.current_branch }}##submit/}" >> $GITHUB_OUTPUT
+
       - name: Define student name
         id: student-name
         run: |
-          echo ${{ steps.branch-name.outputs.current_branch }}
           AUTHOR_PR=${{ github.event.pull_request.user.login }}
           echo "name=$AUTHOR_PR" >> $GITHUB_OUTPUT
 
