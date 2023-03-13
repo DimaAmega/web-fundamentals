@@ -22,6 +22,12 @@ importers:
       command-line-args: 5.2.1
       uuid: 9.0.0
 
+  utils/test-task:
+    specifiers:
+      command-line-args: ^5.2.1
+    dependencies:
+      command-line-args: 5.2.1
+
 packages:
 
   /ansi-colors/4.1.1:

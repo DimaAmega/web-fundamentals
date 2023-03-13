@@ -1,3 +1,4 @@
 packages:
   - 'tasks/*'
   - 'utils/submit-task'
+  - 'utils/test-task'

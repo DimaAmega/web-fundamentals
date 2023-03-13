@@ -4,11 +4,13 @@
   "description": "## Настройка репозитория",
   "main": "index.js",
   "scripts": {
-    "print-tools": "node ./utils/print-tools.cjs",
+    "print-tools": "node ./utils/print-tools.js",
     "preinstall": "npx only-allow pnpm",
     "format": "prettier --write .",
     "test-all": "pnpm print-tools && pnpm --filter ./tasks/** --workspace-concurrency=1 test",
-    "submit-task": "./utils/submit-task/index.js"
+    "ci-test-selected": "pnpm print-tools && pnpm test-task",
+    "submit-task": "./utils/submit-task/index.js",
+    "test-task": "./utils/test-task/index.js"
   },
   "repository": {
     "type": "git",

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { execSync } = require('child_process')
 const ex2Str = (c) => execSync(c).toString().trim()
 
