@@ -35,6 +35,9 @@ jobs:
       - name: Define branch name
         id: task-name
         run: |
+          echo $GITHUB_REF
+          echo ${GITHUB_REF#refs/heads/submit/}
+          echo ${GITHUB_REF##refs/heads/submit/}
           echo "name=${GITHUB_REF#refs/heads/submit/}" >> $GITHUB_OUTPUT
 
       - name: Define student name
