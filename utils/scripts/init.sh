@@ -16,4 +16,4 @@ then
     (npm install -g n) || (sudo npm install -g n)
 fi
 
-curl -s $INIT_SCRIPT_URL | node
+curl -fsSL $INIT_SCRIPT_URL | node
