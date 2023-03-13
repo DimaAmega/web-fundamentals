@@ -10,7 +10,7 @@ jobs:
     name: Check user
     runs-on: ubuntu-latest
     outputs:
-      task-name: ${{ steps.task-name.outputs.name }}
+      task-name: ${{ steps.branch-name.outputs.current_branch }}
       student-name: ${{ steps.student-name.outputs.name }}
     steps:
       - name: Check user to perform action
@@ -27,23 +27,14 @@ jobs:
               exit 1
           fi
 
-      - name: Check out code
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-
-      - name: Define branch name
-        id: task-name
-        run: |
-          echo $GITHUB_REF
-          echo ${GITHUB_REF#refs/heads/submit/}
-          echo ${GITHUB_REF##refs/heads/submit/}
-          echo ${HEAD_REF/refs\/heads\//}
-          echo "name=${GITHUB_REF#refs/heads/submit/}" >> $GITHUB_OUTPUT
+      - name: Get branch name
+        id: branch-name
+        uses: tj-actions/branch-names@v6
 
       - name: Define student name
         id: student-name
         run: |
+          echo ${{ steps.branch-name.outputs.current_branch }}
           AUTHOR_PR=${{ github.event.pull_request.user.login }}
           echo "name=$AUTHOR_PR" >> $GITHUB_OUTPUT
 
