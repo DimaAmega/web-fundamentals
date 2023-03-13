@@ -29,6 +29,13 @@
       "label": "test: js-hello-world",
       "detail": "test js-hello-world task",
       "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "command": "pnpm submit-task --task 232",
+      "label": "submit: js-hello-world",
+      "detail": "submit js-hello-world task",
+      "problemMatcher": []
     }
   ]
 }
