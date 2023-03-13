@@ -34,9 +34,8 @@ jobs:
       - name: Define task name
         id: task-name
         run: |
-          echo "name=${${{ steps.branch-name.outputs.current_branch }}##submit/}"
-          echo "name=${${{ steps.branch-name.outputs.current_branch }}##submit/}" >> $GITHUB_OUTPUT
-
+          BRANCH_NAME=${{ steps.branch-name.outputs.current_branch }}
+          echo "name=${BRANCH_NAME##submit/}" >> $GITHUB_OUTPUT
       - name: Define student name
         id: student-name
         run: |
