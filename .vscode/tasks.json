@@ -32,7 +32,7 @@
     },
     {
       "type": "shell",
-      "command": "pnpm submit-task --task 232",
+      "command": "pnpm submit-task --task js-hello-world",
       "label": "submit: js-hello-world",
       "detail": "submit js-hello-world task",
       "problemMatcher": []
