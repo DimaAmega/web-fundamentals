@@ -98,10 +98,6 @@ jobs:
     timeout-minutes: 60
     needs: [test, prepare]
     steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-
       - name: Checkout shadow
         uses: actions/checkout@v3
         with:
