@@ -17,7 +17,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "gh repo set-default DimaAmega/web-fundamentals"
+	"postCreateCommand": "gh repo set-default DimaAmega/web-fundamentals && pnpm install"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
