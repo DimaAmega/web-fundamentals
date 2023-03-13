@@ -106,6 +106,10 @@ function configRepo() {
   logHeader('repo configured')
 }
 
+function installDeps() {
+  ex(`cd web-fundamentals && pnpm install`)
+}
+
 ///////////////
 //    MAIN
 ///////////////
@@ -117,5 +121,6 @@ installCLI({ cliName: 'gh', install: installGh, majorRequired: 2 })
 configGh()
 forkAndCloneRepo()
 configRepo()
+installDeps()
 
 logHeader('DONE')
