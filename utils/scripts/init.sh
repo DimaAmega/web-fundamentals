@@ -24,7 +24,8 @@ then
     mkdir -p $HOME/.n
     export N_PREFIX=$HOME/.n
     exec_sudo "curl -fsSL https://raw.githubusercontent.com/tj/n/master/bin/n | bash -s lts"
-    export PATH=$N_PREFIX/bin:$PATH
+    echo "export PATH=$N_PREFIX/bin:\$PATH" >> ~/.bashrc || true
+    . ~/.profile || true
     exec_sudo "npm install -g n"
 fi
 
