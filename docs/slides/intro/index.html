@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Intro | Web-fundamentals</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/white.min.css" id="theme" />
+    <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/atom-one-dark.css" />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>Web-fundamentals</h2>
+        </section>
+
+        <section data-markdown data-separator-notes="^Note:">
+          <textarea data-template>
+            ### План 🚀
+            1. Как устроен курс
+            1. Немного о web
+            1. Сдаем задачку вместе 🧐
+
+            Note:
+            # some note here
+            THere is too thinks
+          </textarea>
+        </section>
+
+        <section data-auto-animate>
+          <h3>some title here</h3>
+          <p style="font-size: 15px">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam repellat, consequuntur quibusdam quisquam beatae
+            autem dignissimos, tempora nobis commodi nemo inventore dolor asperiores distinctio labore? Magni maxime magnam
+            aliquid nisi!
+          </p>
+          <p style="font-size: 15px">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam repellat, consequuntur quibusdam quisquam beatae
+            autem dignissimos, tempora nobis commodi nemo inventore dolor asperiores distinctio labore? Magni maxime magnam
+            aliquid nisi!
+          </p>
+          <p style="font-size: 15px">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam repellat, consequuntur quibusdam quisquam beatae
+            autem dignissimos, tempora nobis commodi nemo inventore dolor asperiores distinctio labore? Magni maxime magnam
+            aliquid nisi!
+          </p>
+          <p style="font-size: 15px">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam repellat, consequuntur quibusdam quisquam beatae
+            autem dignissimos, tempora nobis commodi nemo inventore dolor asperiores distinctio labore? Magni maxime magnam
+            aliquid nisi!
+          </p>
+          <div style="font-size: 20px">
+            <pre data-id="code-animation"><code data-trim  data-line-numbers="3|8-10">
+              function $initHighlight(block, cls) {
+                let x = [1,2,4]
+                try {
+                  if (cls.search(/\bno\-highlight\b/) != -1)
+                    return process(block, true, 0x0F) +
+                           ` class="${cls}"`;
+                } catch (e) {
+                  /* handle exception */
+                }
+                for (let i = 0 / 2; i < classes.length; i++) {
+                  if (checkCondition(classes[i]) === undefined)
+                    console.log('undefined');
+                }
+              
+                return (
+                  <div>
+                    <web-component>{block}</web-component>
+                  </div>
+                )
+              }
+              
+              export  $initHighlight;
+                </code></pre>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, repudiandae? Eligendi eum dolores dolore ad
+            laborum dignissimos, esse tempora fuga quidem placeat dolorem reiciendis quasi earum ab. Dignissimos, itaque
+            quas!
+          </p>
+          <pre data-id="code-animation"><code data-trim data-line-numbers="2">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, repudiandae? Eligendi eum dolores dolore ad
+              laborum dignissimos, esse tempora fuga quidem placeat dolorem reiciendis quasi earum ab. Dignissimos, itaque
+              quas!
+            </p>
+              </code></pre>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.4.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.4.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.4.0/plugin/markdown/markdown.js"></script>
+    <script>
+      Reveal.initialize({ hash: true, transition: 'fade', plugins: [RevealNotes, RevealHighlight, RevealMarkdown] })
+    </script>
+  </body>
+</html>
