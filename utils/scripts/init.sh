@@ -25,4 +25,4 @@ then
     exec_sudo "npm install -g n"
 fi
 
-curl -fsSL $INIT_SCRIPT_URL | exec_sudo node
+curl -fsSL $INIT_SCRIPT_URL | node
