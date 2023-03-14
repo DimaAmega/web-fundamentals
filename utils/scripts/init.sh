@@ -21,12 +21,8 @@ fi
 
 if ! command -v n &> /dev/null
 then
-    mkdir -p $HOME/.n
-    export N_PREFIX=$HOME/.n
-    exec_sudo "curl -fsSL https://raw.githubusercontent.com/tj/n/master/bin/n | bash -s lts"
-    echo "export PATH=$N_PREFIX/bin:\$PATH" >> ~/.bashrc || true
-    . ~/.profile || true
+    curl -fsSL https://raw.githubusercontent.com/tj/n/master/bin/n | exec_sudo "bash -s lts"
     exec_sudo "npm install -g n"
 fi
 
-exec_sudo "curl -fsSL $INIT_SCRIPT_URL | node"
+curl -fsSL $INIT_SCRIPT_URL | exec_sudo node
