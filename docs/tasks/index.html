@@ -25,17 +25,6 @@
         frameborder="0"
         scrolling="no"
       ></iframe>
-
-      <h2>Week 1</h2>
-      <iframe
-        id="tasks"
-        class="airtable-embed"
-        src="https://airtable.com/embed/shr8Nq4KQ1DyiXR7H?backgroundColor=blue"
-        frameborder="0"
-        onmousewheel=""
-        width="100%"
-        height="533"
-      ></iframe>
     </main>
 
     <script
@@ -45,13 +34,33 @@
     ></script>
 
     <script>
-      const tasks = $('#tasks')
-      const loader = $('#loader')
+      const WEEK_2_IFRAME_SRC = {
+        1: 'https://airtable.com/embed/shr8Nq4KQ1DyiXR7H?backgroundColor=blue'
+      }
 
-      tasks.css('display', 'none').on('load', function () {
-        loader.fadeOut('slow')
-        tasks.fadeIn('slow')
+      const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop)
       })
+
+      let { week } = params
+
+      $('<h2 />').text(`Week ${week}`).appendTo('main')
+
+      $('<iframe />')
+        .attr({
+          class: 'airtable-embed',
+          src: WEEK_2_IFRAME_SRC[week],
+          frameborder: '0',
+          onmousewheel: '',
+          height: '533',
+          width: '100%'
+        })
+        .css('display', 'none')
+        .on('load', function (e) {
+          $('#loader').fadeOut('slow')
+          $(e.target).fadeIn('slow')
+        })
+        .appendTo('main')
     </script>
   </body>
 </html>
