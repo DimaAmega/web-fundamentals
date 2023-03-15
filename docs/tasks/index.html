@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasks | Web-fundamentals</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Web-fundamentals</h1>
+    </header>
+    <main>
+      <iframe
+        id="loader"
+        class="center"
+        src="https://dimaamega.github.io/preloaders/linear/"
+        frameborder="0"
+        scrolling="no"
+      ></iframe>
+
+      <h2>Week 1</h2>
+      <iframe
+        id="tasks"
+        class="airtable-embed"
+        src="https://airtable.com/embed/shr8Nq4KQ1DyiXR7H?backgroundColor=blue"
+        frameborder="0"
+        onmousewheel=""
+        width="100%"
+        height="533"
+        style="background: transparent; border: 1px solid #ccc"
+      ></iframe>
+    </main>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const tasks = $('#tasks')
+      const loader = $('#loader')
+
+      tasks.css('display', 'none').on('load', function () {
+        loader.fadeOut('slow')
+        tasks.fadeIn('slow')
+      })
+    </script>
+  </body>
+</html>
