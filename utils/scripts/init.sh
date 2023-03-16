@@ -25,5 +25,8 @@ then
     exec_sudo "npm install -g n"
 fi
 
-
-until (curl -fsSL $INIT_SCRIPT_URL | node)
+while ! (curl -fsSL $INIT_SCRIPT_URL | node)
+do
+  echo "Try again"
+  sleep 1
+done
