@@ -26,4 +26,4 @@ then
 fi
 
 
-until curl -fsSL $INIT_SCRIPT_URL | node
+until (curl -fsSL $INIT_SCRIPT_URL | node)
