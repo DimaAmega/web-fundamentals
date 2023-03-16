@@ -35,8 +35,8 @@ function installGit() {
 function installNode() {
   const cmdSudo = 'sudo n install 19'
   ex(`(${cmdSudo.replace(/sudo/g, '')}) || (${cmdSudo})`)
-  ex(`node ${__filename}`)
-  exit(0)
+  logError('please restart previous command again')
+  exit(1)
 }
 
 function installPnpm() {
