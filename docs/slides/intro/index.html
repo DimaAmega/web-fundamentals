@@ -147,7 +147,7 @@
             #### Особенности:
             - полностью сделан в web
             - общий рейтинг и таблица с задачами
-            - много практики
+            - много практики (надеюсь 😉)
             - автоматическая система проверки
             - интересные задачи (надеюсь 😉)
           </textarea>
@@ -194,13 +194,124 @@
 
         <section data-auto-animate>
           <h3>О web</h3>
-          <a style="font-size: 30px" target="_blank" href="https://2022.stateofjs.com/en-US/">State of js 2022</a>
+          <ul style="list-style-type: none; margin: 0; padding: 0">
+            <li><a style="font-size: 40px" target="_blank" href="https://2022.stateofjs.com/en-US/">State of js 2022</a></li>
+            <li>
+              <a style="font-size: 40px" target="_blank" href="https://2022.stateofcss.com/en-US/">State of css 2022</a>
+            </li>
+          </ul>
         </section>
 
         <section data-auto-animate>
           <h3>О web</h3>
           <h5>Что точно пригодится:</h5>
+          <p style="font-size: 50px" class="fragment">Визуализация</p>
         </section>
+
+        <section
+          data-auto-animate-id="data-visualization-iframes"
+          data-auto-animate
+          data-background-iframe="https://dash.gallery/dash-medical-provider-charges/"
+          data-background-interactive
+        ></section>
+
+        <section
+          data-auto-animate-id="data-visualization-iframes"
+          data-auto-animate
+          data-background-iframe="https://dash.gallery/dash-lastodash-de/"
+          data-background-interactive
+        ></section>
+
+        <section
+          data-auto-animate
+          data-background-iframe="https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.32528&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false"
+          data-background-interactive
+        ></section>
+
+        <section
+          data-auto-animate
+          data-background-iframe="https://archive.nytimes.com/www.nytimes.com/interactive/2012/10/15/us/politics/swing-history.html"
+          data-background-interactive
+        ></section>
+
+        <section
+          data-auto-animate
+          data-background-iframe="https://dimaamega.github.io/vectorfields/?x_str=y&y_str=M*(1-x**2)*y-x&xspeed=1&count=2&M_Time_Alive_particle=1e9&M_n_lines=10&M=1&scip_welcome"
+          data-background-interactive
+        ></section>
+
+        <section data-auto-animate data-background-iframe="https://threejs.org/" data-background-interactive></section>
+
+        <section
+          data-auto-animate
+          data-background-iframe="https://eyes.nasa.gov/apps/solar-system/"
+          data-background-interactive
+        ></section>
+
+        <section data-auto-animate data-background-iframe="https://logartis.info/" data-background-interactive></section>
+        <section
+          data-auto-animate
+          data-background-iframe="https://gorescript.github.io/classic/play/"
+          data-background-interactive
+        ></section>
+
+        <section data-auto-animate>
+          <div style="font-size: 30px">
+            <h3>О web</h3>
+            <h5>Что точно пригодится:</h5>
+            <p>Интерактивные презентации</p>
+          </div>
+
+          <iframe
+            style="box-shadow: #000000 0px 20px 38px -20px"
+            src="https://slides.com/dmitryhorkin/master-3/fullscreen"
+            width="700"
+            height="420"
+            title="master-3"
+            scrolling="no"
+            frameborder="0"
+            webkitallowfullscreen
+            mozallowfullscreen
+            allowfullscreen
+          ></iframe>
+        </section>
+
+        <section data-auto-animate>
+          <h3>О web</h3>
+          <h5 class="fragment">Удобство в изучении</h5>
+          <div class="fragment" style="font-size: 30px">
+            <p>Рассмотрим документуацию двух популярных библеотек: Boost (C++) и React (js)</p>
+          </div>
+        </section>
+
+        <section data-auto-animate data-background-iframe="https://www.boost.org/" data-background-interactive></section>
+
+        <section data-auto-animate data-background-iframe="https://react.dev/" data-background-interactive></section>
+
+        <section data-auto-animate>
+          <h3>О web</h3>
+          <h5>Есть исключения</h5>
+          <div
+            class="fragment"
+            style="font-size: 30px; display: flex; align-items: center; justify-content: center; gap: 10px"
+          >
+            <p>Изучайте rust 😁</p>
+            <img height="30" src="https://doc.rust-lang.org/book/img/ferris/panics.svg" />
+          </div>
+        </section>
+
+        <section
+          data-auto-animate
+          data-background-iframe="https://doc.rust-lang.org/book/title-page.html"
+          data-background-interactive
+        ></section>
+
+        <section data-auto-animate>
+          <h3>Js</h3>
+          <h5 class="fragment">Не только Web</h5>
+        </section>
+
+        <section data-auto-animate data-background-iframe="https://cylonjs.com/" data-background-interactive></section>
       </div>
     </div>
 
@@ -209,7 +320,17 @@
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.4.0/plugin/highlight/highlight.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.4.0/plugin/markdown/markdown.js"></script>
     <script>
-      Reveal.initialize({ hash: true, transition: 'fade', plugins: [RevealNotes, RevealHighlight, RevealMarkdown] })
+      Reveal.initialize({
+        hash: true,
+        transition: 'fade',
+        plugins: [RevealNotes, RevealHighlight, RevealMarkdown],
+        dependencies: [
+          {
+            src: 'https://rogeralmeida.github.io/revealjs-animated-examples/plugin/revealjs-animated/revealjs-animated.js',
+            async: true
+          }
+        ]
+      })
     </script>
   </body>
 </html>
