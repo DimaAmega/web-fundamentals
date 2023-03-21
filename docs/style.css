@@ -14,6 +14,7 @@ h6 {
 body {
   font-family: 'Signika Negative', sans-serif;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .center {
@@ -50,8 +51,14 @@ header > h1 {
   box-shadow: 14px 17px 35px -30px rgba(0, 0, 0, 0.7);
 }
 
+ul,
 ol {
   list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+ol {
   counter-reset: my-awesome-counter;
 }
 ol li {

@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web-fundamentals</title>
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
-      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
@@ -17,6 +17,7 @@
     <header>
       <h1>Web-fundamentals</h1>
     </header>
+
     <main>
       <iframe
         id="loader"
@@ -26,12 +27,7 @@
         scrolling="no"
       ></iframe>
 
-      <h2>Слайды:</h2>
-      <ol>
-        <li><a href="./slides/intro">Интро</a></li>
-      </ol>
-
-      <h2>Таблица с результатами</h2>
+      <h2>Results table</h2>
 
       <iframe
         id="airtable"
@@ -41,7 +37,17 @@
         width="100%"
         height="500"
       ></iframe>
+      <br />
+      <h2>Slides:</h2>
+      <br />
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm-3 col-md-4"><a href="./slides/intro">Интро</a></div>
+        </div>
+      </div>
     </main>
+
+    <br />
 
     <script
       src="https://code.jquery.com/jquery-3.6.3.min.js"
