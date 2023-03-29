@@ -20,7 +20,8 @@
 curl -fsSL https://raw.githubusercontent.com/DimaAmega/web-fundamentals/main/utils/scripts/init.sh | bash
 ```
 3. Успешное выполнение выглядит как то так и заканчиваетя словом `DONE`:
-![image](https://user-images.githubusercontent.com/32310771/228545877-7326bacc-2439-44d1-a7c6-84c4dcd9d163.png)
+![image](https://user-images.githubusercontent.com/32310771/228545877-7326bacc-2439-44d1-a7c6-84c4dcd9d163.png)<br>
+Скрипт может спросить вас ввести пароль суперпользователя. Надеюсь вы его знаете 🙂
 
 
 ### В облаке
