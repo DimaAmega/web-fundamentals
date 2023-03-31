@@ -110,6 +110,10 @@ function installDeps() {
   ex(`cd web-fundamentals && pnpm install`)
 }
 
+function setupFrontendTools() {
+  ex(`cd web-fundamentals && pnpm dlx playwright@1.32.1 install --with-deps`)
+}
+
 ///////////////
 //    MAIN
 ///////////////
@@ -122,5 +126,6 @@ configGh()
 forkAndCloneRepo()
 configRepo()
 installDeps()
+setupFrontendTools()
 
 logHeader('DONE')
