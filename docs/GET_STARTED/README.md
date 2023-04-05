@@ -29,6 +29,7 @@ curl -fsSL https://raw.githubusercontent.com/DimaAmega/web-fundamentals/main/uti
 
 
 4. После этого у вас на диске появится папка `web-fundamentals`. Откройте `vscode` в этой папке и можно считать что все готово!
+5. Переходите к решению [первой](#наконец-то-решаем-задачу) задачи
 
 #### В облаке
 1. Откройте браузер и залогиньтесь на github.
