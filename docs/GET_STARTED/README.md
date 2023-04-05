@@ -26,6 +26,7 @@ curl -fsSL https://raw.githubusercontent.com/DimaAmega/web-fundamentals/main/uti
 
 #### В облаке
 
+<img width="1318" alt="image" src="https://user-images.githubusercontent.com/32310771/230045574-909d47ea-2736-4cba-9fa9-e3257586d50d.png">
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit consequuntur aperiam earum facere expedita. Quasi porro, ad voluptatibus hic in voluptate iste excepturi commodi saepe accusantium explicabo minima, necessitatibus dolorem.
 
