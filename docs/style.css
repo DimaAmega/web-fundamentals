@@ -85,7 +85,7 @@ a {
   padding: 0 0.25rem;
   transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-a:hover {
+a.custom_link:hover {
   box-shadow: inset 100px 0 0 0 #1957e0;
   color: white;
 }
