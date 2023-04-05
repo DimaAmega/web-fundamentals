@@ -60,4 +60,4 @@
 
 <img width="1310" alt="image" src="https://user-images.githubusercontent.com/32310771/224821809-d79234e5-d6a9-4afc-9087-770535ab2327.png">
 
-10. Ваши баллы должны обновиться в общей таблице
+10. Ваши баллы должны обновиться в [общей таблице](https://dimaamega.github.io/web-fundamentals/)
