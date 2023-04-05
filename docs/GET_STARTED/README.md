@@ -55,6 +55,6 @@ curl -fsSL https://raw.githubusercontent.com/DimaAmega/web-fundamentals/main/uti
 Обратите внимание на несколько возможных вариантов запуска codespace. Я рекомендую использовать `open in Visual Studio Code` предварительно скачав [vscode](https://code.visualstudio.com/)
 
 
-### Наконец то решаем
+### Наконец то решаем задачу
 
 Переходите к решению первой задачи [js-hello-world](https://github.com/DimaAmega/web-fundamentals/tree/main/tasks/js-hello-world)
