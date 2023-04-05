@@ -1,0 +1,22 @@
+{
+  "name": "html-hello-world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "pnpm concurrently -s first -k 'pnpm:test:static-server' 'pnpm:test:frontend'",
+    "live-server": "pnpm static-server -w",
+    "test:static-server": "pnpm static-server --no-open",
+    "static-server": "browser-sync -s --port 3000",
+    "test:frontend": "pnpm wait-on tcp:3000 && playwright test --fully-parallel",
+    "test:frontend-show-report": "playwright show-report"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.29.1",
+    "concurrently": "^8.0.1",
+    "wait-on": "^7.0.1",
+    "@playwright/test": "^1.32.1"
+  }
+}

@@ -36,6 +36,29 @@
       "label": "submit: js-hello-world",
       "detail": "submit js-hello-world task",
       "problemMatcher": []
+    },
+    {
+      "type": "npm",
+      "path": "tasks/html-hello-world",
+      "script": "live-server",
+      "label": "live-server: html-hello-world",
+      "detail": "run live-server for html-hello-world task",
+      "problemMatcher": []
+    },
+    {
+      "type": "npm",
+      "path": "tasks/html-hello-world",
+      "script": "test",
+      "label": "test: html-hello-world",
+      "detail": "test html-hello-world task",
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "command": "pnpm submit-task --task html-hello-world",
+      "label": "submit: html-hello-world",
+      "detail": "submit html-hello-world task",
+      "problemMatcher": []
     }
   ]
 }
