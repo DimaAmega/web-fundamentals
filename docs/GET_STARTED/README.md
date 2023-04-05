@@ -25,25 +25,27 @@ curl -fsSL https://raw.githubusercontent.com/DimaAmega/web-fundamentals/main/uti
 
 
 #### В облаке
+1. Откройте браузер и залогиньтесь на github.
+2. Перейдите по ссылке к https://github.com/DimaAmega/web-fundamentals и нажмите `fork`:
+<img width="1426" alt="image" src="https://user-images.githubusercontent.com/32310771/230214793-ec0be397-9457-46db-a91a-5ed65d405891.png">
+Далее:
+<img width="1426" alt="image" src="https://user-images.githubusercontent.com/32310771/230215400-53aa8140-a341-4b2c-b774-d5d19a3e64d9.png">
+3. Теперь вам нужно создать Codespace:
+<img width="1426" alt="image" src="https://user-images.githubusercontent.com/32310771/230216384-1aec1490-b341-490e-8183-fc99dd73aac4.png">
+<img width="1426" alt="image" src="https://user-images.githubusercontent.com/32310771/230216594-d76a4f36-0580-46ab-aadf-231963b585eb.png">
+Далее вам нужно подождать пока у вас запустится vscode в браузере. Как только вы увидете интерфейс вам нужно будет тоже немного подождать пока не будет выполнен начальный скрипт. Выглядит это так:
+<img width="1426" alt="image" src="https://user-images.githubusercontent.com/32310771/230217232-a74746d8-13ac-4fc0-820d-670b678a0520.png">
+Терминал закроется как только скрипт выполнится. Тогда вы можете начинать работать.
 
-<img width="1318" alt="image" src="https://user-images.githubusercontent.com/32310771/230045574-909d47ea-2736-4cba-9fa9-e3257586d50d.png">
+##### Пару слов о codespaces:
+По сути Codespace - это ваш репозиторий, находящийся на некоторой виртуальной машинке в облаке. Все файлы что вы изменяете, все инструкции что вы 
+запускаете - все происходит где-то там в облаке на этой машинке, браузер просто посылает запросы и отрисовывает результат.
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit consequuntur aperiam earum facere expedita. Quasi porro, ad voluptatibus hic in voluptate iste excepturi commodi saepe accusantium explicabo minima, necessitatibus dolorem.
+Если вы вновь хотите продолжить работу, то запускайте уже существующий codespace:
+<img width="1426" alt="image" src="https://user-images.githubusercontent.com/32310771/230218437-882cb563-f613-4e31-b465-351d29793911.png">
+<img width="1426" alt="image" src="https://user-images.githubusercontent.com/32310771/230219176-cc4b7504-6648-4dc6-ac9c-87a853aa6566.png">
+<img width="1426" alt="image" src="https://user-images.githubusercontent.com/32310771/230219368-c628622d-bca7-4efa-b920-ec253acc0aca.png">
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit consequuntur aperiam earum facere expedita. Quasi porro, ad voluptatibus hic in voluptate iste excepturi commodi saepe accusantium explicabo minima, necessitatibus dolorem.
+Обратите внимание на несколько возможных вариантов запуска codespace. Я рекомендую использовать `open in Visual Studio Code` предварительно скачав 
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit consequuntur aperiam earum facere expedita. Quasi porro, ad voluptatibus hic in voluptate iste excepturi commodi saepe accusantium explicabo minima, necessitatibus dolorem.
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit consequuntur aperiam earum facere expedita. Quasi porro, ad voluptatibus hic in voluptate iste excepturi commodi saepe accusantium explicabo minima, necessitatibus dolorem.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit consequuntur aperiam earum facere expedita. Quasi porro, ad voluptatibus hic in voluptate iste excepturi commodi saepe accusantium explicabo minima, necessitatibus dolorem.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit consequuntur aperiam earum facere expedita. Quasi porro, ad voluptatibus hic in voluptate iste excepturi commodi saepe accusantium explicabo minima, necessitatibus dolorem.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit consequuntur aperiam earum facere expedita. Quasi porro, ad voluptatibus hic in voluptate iste excepturi commodi saepe accusantium explicabo minima, necessitatibus dolorem.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit consequuntur aperiam earum facere expedita. Quasi porro, ad voluptatibus hic in voluptate iste excepturi commodi saepe accusantium explicabo minima, necessitatibus dolorem.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit consequuntur aperiam earum facere expedita. Quasi porro, ad voluptatibus hic in voluptate iste excepturi commodi saepe accusantium explicabo minima, necessitatibus dolorem.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit consequuntur aperiam earum facere expedita. Quasi porro, ad voluptatibus hic in voluptate iste excepturi commodi saepe accusantium explicabo minima, necessitatibus dolorem.
