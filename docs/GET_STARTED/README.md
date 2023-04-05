@@ -52,7 +52,7 @@ curl -fsSL https://raw.githubusercontent.com/DimaAmega/web-fundamentals/main/uti
 <img width="1426" alt="image" src="https://user-images.githubusercontent.com/32310771/230219176-cc4b7504-6648-4dc6-ac9c-87a853aa6566.png">
 <img width="1426" alt="image" src="https://user-images.githubusercontent.com/32310771/230219368-c628622d-bca7-4efa-b920-ec253acc0aca.png">
 
-Обратите внимание на несколько возможных вариантов запуска codespace. Я рекомендую использовать `open in Visual Studio Code` предварительно скачав [vscode](https://code.visualstudio.com/)
+Обратите внимание на несколько возможных вариантов запуска codespace. Я рекомендую использовать `open in Visual Studio Code` предварительно скачав [vscode](https://code.visualstudio.com/). Также рекомендуется сразу после окночания работы делать `Stop codespace` (на скринах выше есть), чтобы облако не тратило вычислительные ресурсы на вас понапрасну
 
 
 ### Наконец то решаем задачу
