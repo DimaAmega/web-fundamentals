@@ -106,7 +106,7 @@ jobs:
         run: pnpm ci-test-selected --task ${{ needs.prepare.outputs.task-name }}
 
       - uses: actions/upload-artifact@v3
-        if: contains(steps.playwright_tested_tasks.outputs.pw_tasks, needs.prepare.outputs.task-name)
+        if: always() && contains(steps.playwright_tested_tasks.outputs.pw_tasks, needs.prepare.outputs.task-name)
         with:
           name: playwright-report
           path: tasks/${{ needs.prepare.outputs.task-name }}/playwright-report/
