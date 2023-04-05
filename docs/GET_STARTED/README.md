@@ -1,6 +1,6 @@
 ## Начало работы
 
-1. Прежде всего вам нужен аккаунт на [github](https://github.com/)
+Прежде всего вам нужен аккаунт на [github](https://github.com/). Перейдите по ссылке и создайте его
 
 ### Варианты
 Есть два варианта:
@@ -55,3 +55,6 @@ curl -fsSL https://raw.githubusercontent.com/DimaAmega/web-fundamentals/main/uti
 Обратите внимание на несколько возможных вариантов запуска codespace. Я рекомендую использовать `open in Visual Studio Code` предварительно скачав [vscode](https://code.visualstudio.com/)
 
 
+### Наконец то решаем
+
+Переходите к решению первой задачи [js-hello-world](https://github.com/DimaAmega/web-fundamentals/tree/main/tasks/js-hello-world)
