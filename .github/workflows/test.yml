@@ -88,6 +88,19 @@ jobs:
         shell: bash
         run: cd .shadow && pnpm ci-copy-all-tests-up-level
 
+      - name: Collect playwright tasks
+        shell: bash
+        id: playwright_tested_tasks
+        run: |
+          PW_TASKS=$(cd tasks && find . -type f -name 'playwright.config.js' | sed -r 's|/[^/]+$||' | sed 's/\.\///g' |  tr '\n' ',')
+          echo "pw_tasks=$PW_TASKS"
+          echo "pw_tasks=$PW_TASKS" >> $GITHUB_OUTPUT
+
+      - name: Install playwright
+        shell: bash
+        if: contains(steps.playwright_tested_tasks.outputs.pw_tasks, needs.prepare.outputs.task-name)
+        run: pnpm dlx playwright@1.32.1 install --with-deps
+
       - name: Run test
         shell: bash
         run: pnpm ci-test-selected --task ${{ needs.prepare.outputs.task-name }}
