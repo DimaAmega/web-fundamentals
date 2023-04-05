@@ -32,7 +32,7 @@ curl -fsSL https://raw.githubusercontent.com/DimaAmega/web-fundamentals/main/uti
 
 #### В облаке
 1. Откройте браузер и залогиньтесь на github.
-2. Перейдите по ссылке к https://github.com/DimaAmega/web-fundamentals и нажмите `fork`:
+2. Перейдите по ссылке к [репозиторию этого курса](https://github.com/DimaAmega/web-fundamentals) и нажмите `fork`:
 <img width="1426" alt="image" src="https://user-images.githubusercontent.com/32310771/230214793-ec0be397-9457-46db-a91a-5ed65d405891.png">
 Далее:
 <img width="1426" alt="image" src="https://user-images.githubusercontent.com/32310771/230215400-53aa8140-a341-4b2c-b774-d5d19a3e64d9.png">
