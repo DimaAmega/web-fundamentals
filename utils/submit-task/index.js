@@ -33,7 +33,8 @@ try {
   ex(`git add -A && git commit -m "fixed"`)
   ex(`git push -f origin ${taskBranch}`)
   ex(`gh pr create --title ${task} --body ""`)
-} catch (error) {
+} catch (e) {
+  console.log(e)
 } finally {
   ex(`git checkout ${stashBranch}`)
   ex(`git reset --mixed @~1`)
