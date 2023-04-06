@@ -13,4 +13,6 @@ const { task } = options
 // check if task folder exists
 ex(`ls tasks | grep ${task}`)
 // check current branch is main
+ex(`git rev-parse --abbrev-ref HEAD | grep main`)
+// run test
 ex(`cd tasks/${task} && pnpm test`)
