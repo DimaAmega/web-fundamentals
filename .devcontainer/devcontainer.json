@@ -17,7 +17,7 @@
   // "forwardPorts": [],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "gh repo set-default DimaAmega/web-fundamentals && pnpm install && node ./utils/scripts/init.js --utils-only && pnpm dlx playwright@1.32.1 install --with-deps"
+  "postCreateCommand": "gh repo set-default DimaAmega/web-fundamentals && node ./utils/scripts/init.js --utils-only && pnpm install && pnpm dlx playwright@1.32.1 install --with-deps"
 
   // Configure tool-specific properties.
   // "customizations": {},
