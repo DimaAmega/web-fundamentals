@@ -5,6 +5,7 @@ const { exit } = require('process')
 const ex = (c) => execSync(c, { stdio: 'inherit' })
 const ex2Str = (c) => execSync(c).toString().trim()
 const platform = () => os.platform()
+const [utilsOnlyFlag] = process.argv.slice(2)
 
 const cyan = '\x1b[36m'
 const reset = '\x1b[0m'
@@ -114,18 +115,24 @@ function setupFrontendTools() {
   ex(`cd web-fundamentals && pnpm dlx playwright@1.32.1 install --with-deps`)
 }
 
+function main() {
+  installCLI({ cliName: 'git', install: installGit, majorRequired: 2 })
+  installCLI({ cliName: 'node', install: installNode, majorRequired: 19 })
+  installCLI({ cliName: 'pnpm', install: installPnpm, majorRequired: 8 })
+  installCLI({ cliName: 'gh', install: installGh, majorRequired: 2 })
+
+  if (utilsOnlyFlag === '--utils-only') {
+    return
+  }
+
+  configGh()
+  forkAndCloneRepo()
+  configRepo()
+  installDeps()
+  setupFrontendTools()
+}
 ///////////////
 //    MAIN
 ///////////////
-
-installCLI({ cliName: 'git', install: installGit, majorRequired: 2 })
-installCLI({ cliName: 'node', install: installNode, majorRequired: 19 })
-installCLI({ cliName: 'pnpm', install: installPnpm, majorRequired: 8 })
-installCLI({ cliName: 'gh', install: installGh, majorRequired: 2 })
-configGh()
-forkAndCloneRepo()
-configRepo()
-installDeps()
-setupFrontendTools()
-
+main()
 logHeader('DONE')
