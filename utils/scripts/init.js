@@ -40,7 +40,7 @@ function installNode() {
 }
 
 function installPnpm() {
-  const cmdSudo = 'sudo npm i -g pnpm@7.20.0'
+  const cmdSudo = 'sudo npm i -g pnpm@8.1.1'
   ex(`(${cmdSudo.replace(/sudo/g, '')}) || (${cmdSudo})`)
 }
 
@@ -120,7 +120,7 @@ function setupFrontendTools() {
 
 installCLI({ cliName: 'git', install: installGit, majorRequired: 2 })
 installCLI({ cliName: 'node', install: installNode, majorRequired: 19 })
-installCLI({ cliName: 'pnpm', install: installPnpm, majorRequired: 7 })
+installCLI({ cliName: 'pnpm', install: installPnpm, majorRequired: 8 })
 installCLI({ cliName: 'gh', install: installGh, majorRequired: 2 })
 configGh()
 forkAndCloneRepo()
