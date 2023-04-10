@@ -10,9 +10,6 @@ importers:
 
   tasks/css-hello-world:
     dependencies:
-      '@playwright/test':
-        specifier: ^1.32.1
-        version: 1.32.2
       browser-sync:
         specifier: ^2.29.1
         version: 2.29.1
