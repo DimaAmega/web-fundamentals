@@ -14,7 +14,7 @@
 #### Локально
 Вы можете использовать ваш текущий пк для прохождения курса, но для этого вам нужно иметь Linux/Mac либо, если вы используете windows - [WSL](https://learn.microsoft.com/ru-ru/windows/wsl/install). В общем, цель одна - иметь под рукой [Unix-like](https://www.wikiwand.com/en/Unix-like) операционную систему с терминалом.
 
-0. Скачайте [vscode](https://code.visualstudio.com/)
+0. Скачайте [vscode](https://code.visualstudio.com/) (если у вас WSL, то используйэе этот [туториал](https://code.visualstudio.com/docs/remote/wsl))
 1. Откройте браузер и залогиньтесь на github.
 2. Заполните airtable форму (ссылку ищите в чатике курса в telegram)
 3. Откройте терминал и перейдите в папку, в которой будет находится код курса (на скриншоте ниже это `~` но вы можете находится где вам удобнее) :
