@@ -86,7 +86,7 @@ jobs:
 
       - name: Install dependencies
         shell: bash
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
       - name: Collect playwright tasks
         shell: bash
