@@ -8,6 +8,21 @@ importers:
         specifier: ^2.8.4
         version: 2.8.4
 
+  tasks/css-hello-world:
+    dependencies:
+      '@playwright/test':
+        specifier: ^1.32.1
+        version: 1.32.2
+      browser-sync:
+        specifier: ^2.29.1
+        version: 2.29.1
+      concurrently:
+        specifier: ^8.0.1
+        version: 8.0.1
+      wait-on:
+        specifier: ^7.0.1
+        version: 7.0.1
+
   tasks/html-hello-world:
     dependencies:
       '@playwright/test':

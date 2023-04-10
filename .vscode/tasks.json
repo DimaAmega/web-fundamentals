@@ -59,6 +59,21 @@
       "label": "submit: html-hello-world",
       "detail": "submit html-hello-world task",
       "problemMatcher": []
+    },
+    {
+      "type": "npm",
+      "path": "tasks/css-hello-world",
+      "script": "live-server",
+      "label": "live-server: css-hello-world",
+      "detail": "run live-server for css-hello-world task",
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "command": "pnpm submit-task --task css-hello-world",
+      "label": "submit: css-hello-world",
+      "detail": "submit css-hello-world task",
+      "problemMatcher": []
     }
   ]
 }

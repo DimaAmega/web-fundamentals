@@ -1,0 +1,17 @@
+{
+  "name": "html-hello-world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "live-server": "pnpm static-server -w",
+    "static-server": "browser-sync -s --port 3000"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.29.1",
+    "concurrently": "^8.0.1",
+    "wait-on": "^7.0.1"
+  }
+}
