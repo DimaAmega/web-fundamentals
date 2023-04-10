@@ -76,10 +76,6 @@ jobs:
           version: 8.1.1
           run_install: false
 
-      - name: Install dependencies
-        shell: bash
-        run: pnpm install
-
       - name: Install dependencies shadow
         shell: bash
         run: cd .shadow && pnpm install
@@ -87,6 +83,10 @@ jobs:
       - name: Copy tests
         shell: bash
         run: cd .shadow && pnpm ci-copy-all-tests-up-level
+
+      - name: Install dependencies
+        shell: bash
+        run: pnpm install
 
       - name: Collect playwright tasks
         shell: bash
