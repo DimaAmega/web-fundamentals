@@ -16,7 +16,8 @@
 
 0. Скачайте [vscode](https://code.visualstudio.com/)
 1. Откройте браузер и залогиньтесь на github.
-1. Откройте терминал и перейдите в папку, в которой будет находится код курса (на скриншоте ниже это `~` но вы можете находится где вам удобнее) :
+2. Заполните airtable форму (ссылку ищите в чатике курса в telegram)
+3. Откройте терминал и перейдите в папку, в которой будет находится код курса (на скриншоте ниже это `~` но вы можете находится где вам удобнее) :
 ![image](https://user-images.githubusercontent.com/32310771/228542842-798a1548-0cd5-41ec-95b0-c9b2f8febc26.png)
 2. Установите все необходимые утилиты. Для этого в терминале выполните команду:
 ```shell
@@ -33,7 +34,8 @@ curl -fsSL https://raw.githubusercontent.com/DimaAmega/web-fundamentals/main/uti
 
 #### В облаке
 1. Откройте браузер и залогиньтесь на github.
-2. Перейдите по ссылке к [репозиторию этого курса](https://github.com/DimaAmega/web-fundamentals) и нажмите `fork`:
+2. Заполните airtable форму (ссылку ищите в чатике курса в telegram)
+3. Перейдите по ссылке к [репозиторию этого курса](https://github.com/DimaAmega/web-fundamentals) и нажмите `fork`:
 <img width="1426" alt="image" src="https://user-images.githubusercontent.com/32310771/230214793-ec0be397-9457-46db-a91a-5ed65d405891.png">
 Далее:
 <img width="1426" alt="image" src="https://user-images.githubusercontent.com/32310771/230215400-53aa8140-a341-4b2c-b774-d5d19a3e64d9.png">
