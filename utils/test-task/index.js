@@ -12,6 +12,9 @@ const { task } = options
 
 // check if task folder exists
 ex(`ls tasks | grep ${task}`)
+
+ex('git rev-parse --abbrev-ref HEAD')
+
 // check current branch is main
 ex(`git rev-parse --abbrev-ref HEAD | grep main`)
 // run test
