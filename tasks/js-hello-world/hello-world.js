@@ -1,6 +1,6 @@
 function helloWorld() {
-  // return ""
-  throw new Error('not implemented')
+  // some comments
+  return "hello world"
 }
 
 export { helloWorld }
