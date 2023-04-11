@@ -54,6 +54,8 @@ jobs:
           echo student-name: ${{ needs.prepare.outputs.student-name }} task-name:${{ needs.prepare.outputs.task-name }}
 
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Checkout shadow
         uses: actions/checkout@v3
@@ -101,9 +103,7 @@ jobs:
 
       - name: Run test
         shell: bash
-        run: |
-          git log -3 --pretty=format:"%h" | cat
-          pnpm ci-test-selected --task ${{ needs.prepare.outputs.task-name }}
+        run: pnpm ci-test-selected --task ${{ needs.prepare.outputs.task-name }}
 
       - uses: actions/upload-artifact@v3
         if: always() && contains(steps.playwright_tested_tasks.outputs.pw_tasks, needs.prepare.outputs.task-name)
