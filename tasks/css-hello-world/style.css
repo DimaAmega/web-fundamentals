@@ -1,1 +1,7 @@
-/* your code goes here */
+p {
+    font-family: 'Courier New';
+    font-size: 32px;
+    text-align: left;
+    font-weight: 200;
+    font-style: italic;
+}
