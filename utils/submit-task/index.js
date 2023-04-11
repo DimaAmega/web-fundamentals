@@ -32,7 +32,7 @@ ex(`cp -r ${tmpFolder}/** tasks/${task}`)
 try {
   ex(`git add -A && git commit -m "fixed"`)
   ex(`git push -f origin ${taskBranch}`)
-  ex(`gh pr create --title ${task} --body ""`)
+  ex(`gh pr create --title ${task} --body "" || true`)
 } catch (e) {
   console.log(e)
 } finally {
