@@ -1,6 +1,5 @@
 function helloWorld() {
-  return "123"
-  // throw new Error('not implemented')
+  return "hello world"
 }
 
 export { helloWorld }
