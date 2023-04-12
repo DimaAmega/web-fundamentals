@@ -2,6 +2,27 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "type": "shell",
+      "command": "gh pr status",
+      "label": "show status of checks",
+      "detail": "just run 'gh pr status' command",
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "command": "while sleep 2; do gh pr status; echo 'Hit Ctrl+C'; done",
+      "label": "watch status of checks",
+      "detail": "while true for 'gh pr status' command",
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "command": "watch -d gh pr status",
+      "label": "watch status of checks v2",
+      "detail": "while true for 'gh pr status' command",
+      "problemMatcher": []
+    },
+    {
       "type": "npm",
       "label": "format",
       "script": "format",
