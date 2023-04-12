@@ -5,4 +5,4 @@
 #### [Slides:](https://dimaamega.github.io/web-fundamentals/#slides)
 - [Intro](https://dimaamega.github.io/web-fundamentals/slides/intro/)
 
-#### [Tasks](/tasks)
+#### [Tasks](./tasks)
