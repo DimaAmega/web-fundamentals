@@ -116,23 +116,28 @@ function setupFrontendTools() {
 }
 
 function main() {
-  installCLI({ cliName: 'git', install: installGit, majorRequired: 2 })
-  installCLI({ cliName: 'node', install: installNode, majorRequired: 19 })
-  installCLI({ cliName: 'pnpm', install: installPnpm, majorRequired: 8 })
-  installCLI({ cliName: 'gh', install: installGh, majorRequired: 2 })
+  
+  (() => {
+    installCLI({ cliName: 'git', install: installGit, majorRequired: 2 })
+    installCLI({ cliName: 'node', install: installNode, majorRequired: 19 })
+    installCLI({ cliName: 'pnpm', install: installPnpm, majorRequired: 8 })
+    installCLI({ cliName: 'gh', install: installGh, majorRequired: 2 })
 
-  if (utilsOnlyFlag === '--utils-only') {
-    return
-  }
+    if (utilsOnlyFlag === '--utils-only') {
+      return
+    }
 
-  configGh()
-  forkAndCloneRepo()
-  configRepo()
-  installDeps()
-  setupFrontendTools()
+    configGh()
+    forkAndCloneRepo()
+    configRepo()
+    installDeps()
+    setupFrontendTools()
+    })();
+ 
+    logHeader('DONE')
 }
 ///////////////
 //    MAIN
 ///////////////
 main()
-logHeader('DONE')
+
