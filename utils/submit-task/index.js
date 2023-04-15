@@ -29,16 +29,23 @@ ex(`git checkout main`)
 ex(`git checkout -b ${taskBranch} || git checkout ${taskBranch}`)
 ex(`rm -rf tasks/${task}/**`)
 ex(`cp -r ${tmpFolder}/** tasks/${task}`)
+let error = null;
 try {
   ex(`git add -A && git commit -m "fixed"`)
   ex(`git push -f origin ${taskBranch}`)
   ex(`gh pr create --title ${task} --body "" || true`)
 } catch (e) {
-  console.log(e)
+  error = e
 } finally {
   ex(`git checkout ${stashBranch}`)
   ex(`git reset --mixed @~1`)
   ex(`git checkout main`)
   ex(`git branch -D ${stashBranch}`)
   ex(`rm -rf ${tmpFolder}`)
+}
+
+if (error) {
+    console.log('something went wrong...')
+    console.error(error)
+    exit(1)
 }
