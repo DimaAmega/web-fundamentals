@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>HTML/CSS | Web-fundamentals</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/white.min.css" id="theme" />
+    <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/atom-one-dark.css" />
+    <style>
+      @import url(https://fonts.googleapis.com/css2?family=Comfortaa&display=swap);
+
+      * {
+        box-sizing: border-box;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      ul,
+      ol,
+      a,
+      p {
+        font-family: Comfortaa !important;
+      }
+
+      .reveal a {
+        all: unset;
+      }
+
+      .reveal a {
+        box-shadow: inset 0 0 0 0 #1957e0;
+        color: #1957e0;
+        margin: 0 -0.25rem;
+        padding: 0 0.25rem;
+        transition: color 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+
+      .reveal a:hover {
+        box-shadow: inset 300px 0 0 0 #1957e0;
+        color: white;
+        cursor: pointer;
+      }
+
+      .sp-highlight .highlight-line {
+        box-shadow: 3px 3px 30px -2px white;
+      }
+
+      .text-085 {
+        font-size: 0.85em;
+      }
+
+      .flex-horizontal,
+      .flex-vertical {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      .flex-horizontal {
+        flex-direction: row;
+      }
+
+      .flex-vertical {
+        flex-direction: column;
+      }
+
+      .flex-setup-1 > *:nth-child(1) {
+        width: 80%;
+      }
+
+      .flex-setup-1 > *:nth-child(2) {
+        width: 20%;
+        font-size: 0.55em;
+      }
+
+      .flex-setup-2 pre.code-wrapper {
+        font-size: 0.4em;
+      }
+
+      .flex-setup-2 > *:nth-child(1) {
+        width: 70%;
+      }
+
+      .flex-setup-2 > *:nth-child(2) {
+        width: 30%;
+      }
+
+      .flex-setup-3 > *:nth-child(1) {
+        width: 50%;
+      }
+
+      .flex-setup-3 > *:nth-child(2) {
+        width: 50%;
+        font-size: 0.7em;
+      }
+
+      .reveal .wrap a {
+        color: -webkit-link;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      .reveal .wrap a:hover {
+        box-shadow: unset;
+      }
+
+      .wrap {
+        font-size: 0.5em;
+      }
+
+      .html_elem .label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #6ac5ac;
+        color: black;
+      }
+
+      .html_elem {
+        border: solid #6ac5ac 3px;
+        position: relative;
+        padding: 15px;
+      }
+
+      .break {
+        width: 100%;
+      }
+
+      /*///////////////
+      // FOR EXAMPLES 
+      ///////////////*/
+
+      .wrap #ex1 p {
+        color: red;
+      }
+
+      .wrap #ex2 p {
+        color: green;
+      }
+
+      .wrap #ex3 p {
+        color: blue;
+        text-align: right;
+      }
+
+      .wrap #ex4 p {
+        color: blue;
+      }
+
+      .wrap #ex5 p:nth-child(1) {
+        color: red;
+      }
+
+      .wrap #ex6 .first {
+        color: red;
+      }
+
+      .wrap #ex7 p:nth-child(1) {
+        color: red;
+      }
+
+      .wrap #ex7 p:nth-child(2) {
+        color: blue;
+        text-align: right;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>Web-fundamentals</h2>
+          <h4>HTML/CSS</h4>
+        </section>
+
+        <section data-auto-animate>
+          <h3>План на сегодня 🚀</h3>
+          <ol>
+            <li>HTML</li>
+            <li>CSS</li>
+          </ol>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <h5 class="fragment">HyperText Markup Language</h5>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <div class="flex-horizontal flex-setup-1">
+            <div>
+              <pre data-id="code-animation"><code data-trim><script type="text/template">
+                <TAG attr1="value1" attr2="value2">...</TAG>
+                </script></code></pre>
+            </div>
+            <div>
+              <p>HTML элемент</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <div class="flex-horizontal flex-setup-1">
+            <div>
+              <pre id="h-tag" data-id="code-animation"><code data-trim><script type="text/template">
+                <TAG attr1="value1" attr2="value2">...&lt;/TAG>
+                </script></code></pre>
+            </div>
+            <div>
+              <p>"TAG": название тега</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <div class="flex-horizontal flex-setup-1">
+            <div>
+              <pre id="h-tag-opened-closed" data-id="code-animation"><code data-trim><script type="text/template">
+                <TAG attr1="value1" attr2="value2">...&lt;/TAG>
+                </script></code></pre>
+            </div>
+            <div>
+              <p>Открываюший и закрывающий теги</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <div class="flex-horizontal flex-setup-1">
+            <div>
+              <pre id="h-attrs" data-id="code-animation"><code data-trim><script type="text/template">
+                <TAG attr1="value1" attr2="value2">...&lt;/TAG>
+                </script></code></pre>
+            </div>
+            <div>
+              <p>Аттрибуты тега</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <div class="flex-horizontal flex-setup-1">
+            <div>
+              <pre id="h-childs" data-id="code-animation"><code data-trim><script type="text/template">
+                <TAG attr1="value1" attr2="value2">...&lt;/TAG>
+                </script></code></pre>
+            </div>
+            <div>
+              <p>Дочерние HTML элементы</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <div class="flex-horizontal flex-setup-1">
+            <div>
+              <pre data-id="code-animation"><code data-trim><script type="text/template">
+                <TAG attr1="value1" attr2="value2">
+                </script></code></pre>
+            </div>
+            <div>
+              <p>HTML элемент может не иметь закрывающего тега и дочерних элементов</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <div class="flex-horizontal flex-setup-1">
+            <div>
+              <pre data-id="code-animation"><code data-trim><script type="text/template">
+                <TAG>
+                </script></code></pre>
+            </div>
+            <div>
+              <p>а также не иметь аттрибуты</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <div class="flex-horizontal flex-setup-1">
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang=&quot;en&quot;&gt;
+                &lt;head&gt;
+                  &lt;meta charset=&quot;UTF-8&quot;&gt;
+                  &lt;meta http-equiv=&quot;X-UA-Compatible&quot;
+                        content=&quot;IE=edge&quot;&gt;
+                  &lt;title&gt;Title&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                <!-- Some content here -->
+                &lt;/body&gt;
+                &lt;/html&gt;
+            </code></pre>
+            </div>
+            <div>
+              <p>Базовая структура html документа</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <div class="flex-horizontal flex-setup-1">
+            <div>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="1">
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang=&quot;en&quot;&gt;
+                &lt;head&gt;
+                  &lt;meta charset=&quot;UTF-8&quot;&gt;
+                  &lt;meta http-equiv=&quot;X-UA-Compatible&quot;
+                        content=&quot;IE=edge&quot;&gt;
+                  &lt;title&gt;Title&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                <!-- Some content here -->
+                &lt;/body&gt;
+                &lt;/html&gt;
+            </code></pre>
+            </div>
+            <div>
+              <p>Объявление типа документа. Исторический артефакт</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <div class="flex-horizontal flex-setup-1">
+            <div>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="2,12">
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang=&quot;en&quot;&gt;
+                &lt;head&gt;
+                  &lt;meta charset=&quot;UTF-8&quot;&gt;
+                  &lt;meta http-equiv=&quot;X-UA-Compatible&quot;
+                        content=&quot;IE=edge&quot;&gt;
+                  &lt;title&gt;Title&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                <!-- Some content here -->
+                &lt;/body&gt;
+                &lt;/html&gt;
+            </code></pre>
+            </div>
+            <div>
+              <p>
+                Элемент <code>&lt;html&gt;</code> содержит в себе всё содержимое страницы, и иногда его называют "корневой
+                элемент"
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <div class="flex-horizontal flex-setup-1">
+            <div>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="3,8">
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang=&quot;en&quot;&gt;
+                &lt;head&gt;
+                  &lt;meta charset=&quot;UTF-8&quot;&gt;
+                  &lt;meta http-equiv=&quot;X-UA-Compatible&quot;
+                        content=&quot;IE=edge&quot;&gt;
+                  &lt;title&gt;Title&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                <!-- Some content here -->
+                &lt;/body&gt;
+                &lt;/html&gt;
+            </code></pre>
+            </div>
+            <div>
+              <p>Элемент <code>&lt;head&gt;</code> содержит метаинформацию.</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <div class="flex-horizontal flex-setup-1">
+            <div>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="4">
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang=&quot;en&quot;&gt;
+                &lt;head&gt;
+                  &lt;meta charset=&quot;UTF-8&quot;&gt;
+                  &lt;meta http-equiv=&quot;X-UA-Compatible&quot;
+                        content=&quot;IE=edge&quot;&gt;
+                  &lt;title&gt;Title&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                <!-- Some content here -->
+                &lt;/body&gt;
+                &lt;/html&gt;
+            </code></pre>
+            </div>
+            <div>
+              <p>Элемент <code>&lt;meta&gt;</code> устанавливает кодировку utf-8.</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <div class="flex-horizontal flex-setup-1">
+            <div>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="7">
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang=&quot;en&quot;&gt;
+                &lt;head&gt;
+                  &lt;meta charset=&quot;UTF-8&quot;&gt;
+                  &lt;meta http-equiv=&quot;X-UA-Compatible&quot;
+                        content=&quot;IE=edge&quot;&gt;
+                  &lt;title&gt;Title&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                <!-- Some content here -->
+                &lt;/body&gt;
+                &lt;/html&gt;
+            </code></pre>
+            </div>
+            <div>
+              <p>
+                Элемент <code>&lt;title&gt;</code> устанавливает заголовок вашей страницы, который появляется во вкладке
+                браузера
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <div class="flex-horizontal flex-setup-1">
+            <div>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="9,11">
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang=&quot;en&quot;&gt;
+                &lt;head&gt;
+                  &lt;meta charset=&quot;UTF-8&quot;&gt;
+                  &lt;meta http-equiv=&quot;X-UA-Compatible&quot;
+                        content=&quot;IE=edge&quot;&gt;
+                  &lt;title&gt;Title&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                <!-- Some content here -->
+                &lt;/body&gt;
+                &lt;/html&gt;
+            </code></pre>
+            </div>
+            <div>
+              <p>Элемент <code>&lt;body&gt;</code> содержит весь видимый контент</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <div class="flex-horizontal flex-setup-1">
+            <div>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="10">
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang=&quot;en&quot;&gt;
+                &lt;head&gt;
+                  &lt;meta charset=&quot;UTF-8&quot;&gt;
+                  &lt;meta http-equiv=&quot;X-UA-Compatible&quot;
+                        content=&quot;IE=edge&quot;&gt;
+                  &lt;title&gt;Title&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                <!-- Some content here -->
+                &lt;/body&gt;
+                &lt;/html&gt;
+            </code></pre>
+            </div>
+            <div>
+              <p>Вот тут, в своих потомках</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <div class="flex-horizontal flex-setup-1">
+            <div>
+              <pre style="font-size: 0.3em" data-id="code-animation"><code data-trim data-line-numbers>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang=&quot;en&quot;&gt;
+                &lt;head&gt;
+                  &lt;meta charset=&quot;UTF-8&quot;&gt;
+                  &lt;meta http-equiv=&quot;X-UA-Compatible&quot;
+                        content=&quot;IE=edge&quot;&gt;
+                  &lt;title&gt;Title&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                &lt;div id=&quot;links&quot;&gt;
+                    &lt;ul&gt;
+                      &lt;li&gt;
+                        &lt;a href=&quot;#&quot; target=&quot;_blank&quot;&gt; HOME &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li&gt;
+                        &lt;a href=&quot;#&quot; target=&quot;_blank&quot;&gt; BLOG &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li&gt;
+                        &lt;a href=&quot;#&quot; target=&quot;_blank&quot;&gt; CONTACT US &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li&gt;
+                        &lt;a href=&quot;#&quot; target=&quot;_blank&quot;&gt; ABOUT &lt;/a&gt;
+                      &lt;/li&gt;
+                      &lt;li&gt;&copy; 2022&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+            </code></pre>
+            </div>
+            <div>
+              <p>
+                HTML образует деревовидную структуру, называемую DOM: <br />
+                <span class="fragment" style="color: red">Document Object Model</span>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>HTML</h3>
+          <h5>DOM</h5>
+          <img
+            class="r-stretch"
+            src="https://user-images.githubusercontent.com/32310771/233227668-c1905f05-edd1-4993-8ec7-4090412a8ab6.png"
+          />
+        </section>
+        <section>
+          <h3>HTML</h3>
+          <h5>DOM</h5>
+          <img
+            class="r-stretch"
+            src="https://user-images.githubusercontent.com/32310771/233228082-9645ef57-c86c-43c2-930b-1f92db25adef.png"
+          />
+        </section>
+
+        <section>
+          <h3>HTML</h3>
+          <h5>DOM</h5>
+          <img
+            class="r-stretch"
+            src="https://user-images.githubusercontent.com/32310771/233228238-5a06d382-6372-458d-a7f3-b6d6c11c1ab1.png"
+          />
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS</h3>
+          <h5 class="fragment">Cascading Style Sheets</h5>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS</h3>
+          <div class="flex-horizontal flex-setup-3">
+            <div>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers>
+                selector {
+                  prop1: "value1";
+                  prop2: "value2";
+                }
+            </code></pre>
+            </div>
+            <div>
+              <p>CSS правило в общем виде</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS</h3>
+          <div class="flex-horizontal flex-setup-3">
+            <div>
+              <pre id="c-selector" class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers>
+                selector {
+                  prop1: "value1";
+                  prop2: "value2";
+                }
+            </code></pre>
+            </div>
+            <div>
+              <p>Селектор - строка, ссылающаяся на html элементы в DOM дереве</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS</h3>
+          <div class="flex-horizontal flex-setup-3">
+            <div>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="1">
+                selector {
+                  prop1: "value1";
+                  prop2: "value2";
+                }
+            </code></pre>
+            </div>
+            <div>
+              <p>Селектор - строка, ссылающаяся на html элементы в DOM дереве</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS</h3>
+          <div class="flex-horizontal flex-setup-3">
+            <div>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="1">
+                p {
+                  prop1: "value1";
+                  prop2: "value2";
+                }
+            </code></pre>
+            </div>
+            <div>
+              <p>Ссылаемся на все параграфы</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS</h3>
+          <div class="flex-horizontal flex-setup-3">
+            <div>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="1">
+                p a {
+                  prop1: "value1";
+                  prop2: "value2";
+                }
+            </code></pre>
+            </div>
+            <div>
+              <p>Ссылаемся на все ссылки внутри параграфов</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS</h3>
+          <div class="flex-horizontal flex-setup-3">
+            <div>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="2">
+                selector {
+                  prop1: "value1";
+                  prop2: "value2";
+                }
+            </code></pre>
+            </div>
+            <div>
+              <p>Объявление свойства</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS</h3>
+          <div class="flex-horizontal flex-setup-3">
+            <div>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="3">
+                selector {
+                  prop1: "value1";
+                  prop2: "value2";
+                }
+            </code></pre>
+            </div>
+            <div>
+              <p>Объявление свойства</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS</h3>
+          <div class="flex-horizontal flex-setup-3">
+            <div>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="2">
+                p {
+                  color: "white";
+                  prop2: "value2";
+                }
+            </code></pre>
+            </div>
+            <div>
+              <p>Например таким образом мы задаем белый цвет текста всем параграфам</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS</h3>
+          <div class="flex-horizontal flex-setup-3">
+            <div>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="3">
+                p {
+                  color: "white";
+                  text-align: "right";
+                }
+            </code></pre>
+            </div>
+            <div>
+              <p>А также выравнивание по правому краю</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS</h3>
+          <div class="flex-horizontal flex-setup-3">
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                selector1 {
+                  prop1: "value1";
+                  prop2: "value2";
+                }
+
+                selector2 {
+                  prop1: "value1";
+                  prop2: "value2";
+                }
+            </code></pre>
+            </div>
+            <div>
+              <p>Несколько CSS блоков</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS</h3>
+          <div class="flex-horizontal flex-setup-3">
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers="1-4|6-9">
+                selector1 {
+                  prop1: "value1";
+                  prop2: "value2";
+                }
+
+                selector2 {
+                  prop1: "value1";
+                  prop2: "value2";
+                }
+            </code></pre>
+            </div>
+            <div>
+              <p>Несколько CSS блоков</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      totam inventore praesentium rem ipsam doloremque eveniet
+                    </p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                p {
+                  color: red;
+                }
+              </code></pre>
+            </div>
+            <div class="break"></div>
+            <div>
+              <div class="wrap html_elem">
+                <span class="label">&lt;div&gt;</span>
+                <div id="ex1">
+                  <p class="html_elem">
+                    <span class="label">&lt;p&gt;</span>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. totam inventore praesentium rem ipsam doloremque
+                    eveniet
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      totam inventore praesentium rem ipsam doloremque eveniet
+                    </p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                p {
+                  color: green;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap html_elem">
+                <span class="label">&lt;div&gt;</span>
+                <div id="ex2">
+                  <p class="html_elem">
+                    <span class="label">&lt;p&gt;</span>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. totam inventore praesentium rem ipsam doloremque
+                    eveniet
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      totam inventore praesentium rem ipsam doloremque eveniet
+                    </p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                p {
+                  color: blue;
+                  text-align: right;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap html_elem">
+                <span class="label">&lt;div&gt;</span>
+                <div id="ex3">
+                  <p class="html_elem">
+                    <span class="label">&lt;p&gt;</span>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. totam inventore praesentium rem ipsam doloremque
+                    eveniet
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit <a href="">amet</a> consectetur adipisicing elit.
+                      totam <a href="">inventore</a> praesentium rem ipsam doloremque eveniet
+                    </p>
+                    <p>
+                      Lorem ipsum dolor sit <a href="">amet</a> consectetur adipisicing elit.
+                      totam <a href="">inventore</a> praesentium rem ipsam doloremque eveniet
+                    </p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                p {
+                  color: blue;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap html_elem">
+                <span class="label">&lt;div&gt;</span>
+                <div id="ex4">
+                  <p class="html_elem">
+                    <span class="label">&lt;p&gt;</span>
+                    Lorem ipsum dolor sit <a href="javascript:window.location.reload(true)">amet</a> consectetur adipisicing
+                    elit. totam <a href="javascript:window.location.reload(true)">inventore</a> praesentium rem ipsam
+                    doloremque eveniet
+                  </p>
+                  <p class="html_elem">
+                    <span class="label">&lt;p&gt;</span>
+                    Lorem ipsum dolor sit <a href="javascript:window.location.reload(true)">amet</a> consectetur adipisicing
+                    elit. totam <a href="javascript:window.location.reload(true)">inventore</a> praesentium rem ipsam
+                    doloremque eveniet
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p class="first">
+                      Lorem ipsum dolor sit <a href="">amet</a> consectetur adipisicing elit.
+                      totam <a href="">inventore</a> praesentium rem ipsam doloremque eveniet
+                    </p>
+                    <p>
+                      Lorem ipsum dolor sit <a href="">amet</a> consectetur adipisicing elit.
+                      totam <a href="">inventore</a> praesentium rem ipsam doloremque eveniet
+                    </p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                .first {
+                  color: red;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap html_elem">
+                <span class="label">&lt;div&gt;</span>
+                <div id="ex6">
+                  <p class="first html_elem">
+                    <span class="label">&lt;p class="first"&gt;</span>
+                    Lorem ipsum dolor sit <a href="javascript:window.location.reload(true)">amet</a> consectetur adipisicing
+                    elit. totam <a href="javascript:window.location.reload(true)">inventore</a> praesentium rem ipsam
+                    doloremque eveniet
+                  </p>
+                  <p class="html_elem">
+                    <span class="label">&lt;p&gt;</span>
+                    Lorem ipsum dolor sit <a href="javascript:window.location.reload(true)">amet</a> consectetur adipisicing
+                    elit. totam <a href="javascript:window.location.reload(true)">inventore</a> praesentium rem ipsam
+                    doloremque eveniet
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit <a href="">amet</a> consectetur adipisicing elit.
+                      totam <a href="">inventore</a> praesentium rem ipsam doloremque eveniet
+                    </p>
+                    <p>
+                      Lorem ipsum dolor sit <a href="">amet</a> consectetur adipisicing elit.
+                      totam <a href="">inventore</a> praesentium rem ipsam doloremque eveniet
+                    </p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                p:nth-child(1) {
+                  color: red;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap html_elem">
+                <span class="label">&lt;div&gt;</span>
+                <div id="ex5">
+                  <p class="first html_elem">
+                    <span class="label">p:nth-child(1)</span>
+                    Lorem ipsum dolor sit <a href="javascript:window.location.reload(true)">amet</a> consectetur adipisicing
+                    elit. totam <a href="javascript:window.location.reload(true)">inventore</a> praesentium rem ipsam
+                    doloremque eveniet
+                  </p>
+                  <p class="first html_elem">
+                    <span class="label">&lt;p&gt;</span>
+                    Lorem ipsum dolor sit <a href="javascript:window.location.reload(true)">amet</a> consectetur adipisicing
+                    elit. totam <a href="javascript:window.location.reload(true)">inventore</a> praesentium rem ipsam
+                    doloremque eveniet
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit <a href="">amet</a> consectetur adipisicing elit.
+                      totam <a href="">inventore</a> praesentium rem ipsam doloremque eveniet
+                    </p>
+                    <p>
+                      Lorem ipsum dolor sit <a href="">amet</a> consectetur adipisicing elit.
+                      totam <a href="">inventore</a> praesentium rem ipsam doloremque eveniet
+                    </p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                p:nth-child(1) {
+                  color: red;
+                }
+
+                p:nth-child(2) {
+                  color: blue;
+                  text-align: right;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap html_elem">
+                <span class="label">&lt;div&gt;</span>
+                <div id="ex7">
+                  <p class="first html_elem">
+                    <span class="label">p:nth-child(1)</span>
+                    Lorem ipsum dolor sit <a href="javascript:window.location.reload(true)">amet</a> consectetur adipisicing
+                    elit. totam <a href="javascript:window.location.reload(true)">inventore</a> praesentium rem ipsam
+                    doloremque eveniet
+                  </p>
+                  <p class="first html_elem">
+                    <span class="label">p:nth-child(2)</span>
+                    Lorem ipsum dolor sit <a href="javascript:window.location.reload(true)">amet</a> consectetur adipisicing
+                    elit. totam <a href="javascript:window.location.reload(true)">inventore</a> praesentium rem ipsam
+                    doloremque eveniet
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.4.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.4.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.4.0/plugin/markdown/markdown.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        transition: 'fade',
+        transitionSpeed: 'fast', // default/fast/slow
+        backgroundTransition: 'none',
+        plugins: [RevealNotes, RevealHighlight, RevealMarkdown],
+        dependencies: [
+          {
+            src: 'https://rogeralmeida.github.io/revealjs-animated-examples/plugin/revealjs-animated/revealjs-animated.js',
+            async: true
+          }
+        ]
+      })
+    </script>
+
+    <script>
+      function createElementFromHTML(htmlString) {
+        var div = document.createElement('div')
+        div.innerHTML = htmlString.trim()
+
+        // Change this to div.childNodes to support multiple top-level nodes.
+        return div.firstChild
+      }
+
+      function manualHighlight(id, contents) {
+        replaceNodeType3ToSpan(`#${id} code`)
+        unHighlight(`#${id} code span`)
+        highlightByContent(`#${id} code span`, contents)
+        console.log('****')
+      }
+
+      function unHighlight(id) {
+        const x = document.querySelectorAll(id).forEach((e) => {
+          e.setAttribute('style', 'opacity: 0.4')
+        })
+      }
+
+      function highlightByContent(id, contents) {
+        const x = document.querySelectorAll(id).forEach((e) => {
+          console.log(e.innerHTML)
+          if (contents.includes(e.innerHTML)) {
+            e.setAttribute('style', 'opacity: 1; box-shadow: 0 7px 4px -2px var(--r-link-color);')
+          }
+        })
+      }
+
+      function replaceNodeType3ToSpan(id) {
+        const x = document.querySelector(id)
+        x.childNodes.forEach((e) => {
+          if (e.nodeType === 3) {
+            e.before(createElementFromHTML(`<span>${e.textContent}</span>`))
+            e.remove()
+          }
+        })
+      }
+
+      manualHighlight('h-tag', ['TAG'])
+      manualHighlight('h-tag-opened-closed', ['TAG', '&lt;', '&gt;', '&lt;/'])
+      manualHighlight('h-attrs', [' attr1=', '"value1"', ' attr2=', '"value2"'])
+      manualHighlight('h-childs', ['...'])
+
+      manualHighlight('c-selector', ['selector '])
+      // TODO others
+    </script>
+  </body>
+</html>
