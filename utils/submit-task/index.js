@@ -29,7 +29,7 @@ ex(`git checkout main`)
 ex(`git checkout -b ${taskBranch} || git checkout ${taskBranch}`)
 ex(`rm -rf tasks/${task}/**`)
 ex(`cp -r ${tmpFolder}/** tasks/${task}`)
-let error = null;
+let error = null
 try {
   ex(`git add -A && git commit -m "fixed"`)
   ex(`git push -f origin ${taskBranch}`)
@@ -45,7 +45,7 @@ try {
 }
 
 if (error) {
-    console.log('something went wrong...')
-    console.error(error)
-    exit(1)
+  console.log('something went wrong...')
+  console.error(error)
+  exit(1)
 }

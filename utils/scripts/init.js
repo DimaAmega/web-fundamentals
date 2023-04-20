@@ -116,8 +116,7 @@ function setupFrontendTools() {
 }
 
 function main() {
-  
-  (() => {
+  ;(() => {
     installCLI({ cliName: 'git', install: installGit, majorRequired: 2 })
     installCLI({ cliName: 'node', install: installNode, majorRequired: 19 })
     installCLI({ cliName: 'pnpm', install: installPnpm, majorRequired: 8 })
@@ -132,12 +131,11 @@ function main() {
     configRepo()
     installDeps()
     setupFrontendTools()
-    })();
- 
-    logHeader('DONE')
+  })()
+
+  logHeader('DONE')
 }
 ///////////////
 //    MAIN
 ///////////////
 main()
-
