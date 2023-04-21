@@ -5,7 +5,16 @@ const { exit } = require('process')
 const ex = (c) => execSync(c, { stdio: 'inherit' })
 const ex2Str = (c) => execSync(c).toString().trim()
 const platform = () => os.platform()
-const [utilsOnlyFlag] = process.argv.slice(2)
+
+const cmdLineFlags = Object.fromEntries(
+  process.argv
+    .slice(2)
+    .filter((e) => e.match(/^-{1,2}\w/))
+    .map((e) => e.replace(/^-{1,2}/, ''))
+    .map((e) => [e, true])
+)
+
+const REPO_FOLDER = (cmdLineFlags['inside-codespace'] && '.') || 'web-fundamentals'
 
 const cyan = '\x1b[36m'
 const reset = '\x1b[0m'
@@ -81,6 +90,10 @@ function configGh() {
 }
 
 function forkAndCloneRepo() {
+  if (cmdLineFlags['inside-codespace']) {
+    return
+  }
+
   try {
     ex('gh repo fork --clone DimaAmega/web-fundamentals')
   } catch (error) {}
@@ -88,31 +101,33 @@ function forkAndCloneRepo() {
 }
 
 function configRepo() {
-  const { email } = JSON.parse(
-    ex2Str(`gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /user/emails`)
-  ).find(({ primary }) => primary)
-  const { login } = JSON.parse(ex2Str(`gh api user`))
+  ;(() => {
+    const { email } = JSON.parse(
+      ex2Str(`gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /user/emails`)
+    ).find(({ primary }) => primary)
+    const { login } = JSON.parse(ex2Str(`gh api user`))
 
-  assert.ok(login)
-  assert.ok(email)
+    assert.ok(login)
+    assert.ok(email)
 
-  ex(
-    `cd web-fundamentals \
-    && git config user.name "${login}" \
-    && git config user.email "${email}" \
-    && git config merge.ff only \
-    && gh repo set-default DimaAmega/web-fundamentals`
-  )
+    ex(
+      `cd ${REPO_FOLDER} \
+      && git config user.name "${login}" \
+      && git config user.email "${email}" \
+      && git config merge.ff only \
+      && gh repo set-default DimaAmega/web-fundamentals`
+    )
+  })()
 
   logHeader('repo configured')
 }
 
 function installDeps() {
-  ex(`cd web-fundamentals && pnpm install`)
+  ex(`cd ${REPO_FOLDER} && pnpm install`)
 }
 
 function setupFrontendTools() {
-  ex(`cd web-fundamentals && pnpm dlx playwright@1.32.1 install --with-deps`)
+  ex(`cd ${REPO_FOLDER} && pnpm dlx playwright@1.32.1 install --with-deps`)
 }
 
 function main() {
@@ -121,10 +136,6 @@ function main() {
     installCLI({ cliName: 'node', install: installNode, majorRequired: 19 })
     installCLI({ cliName: 'pnpm', install: installPnpm, majorRequired: 8 })
     installCLI({ cliName: 'gh', install: installGh, majorRequired: 2 })
-
-    if (utilsOnlyFlag === '--utils-only') {
-      return
-    }
 
     configGh()
     forkAndCloneRepo()
