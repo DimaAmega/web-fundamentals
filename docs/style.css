@@ -97,3 +97,10 @@ a.custom_link:hover {
   height: 80px;
   width: 1px;
 }
+
+.flex-columns {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+}
