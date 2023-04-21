@@ -108,6 +108,7 @@ function configRepo() {
       return
     }
 
+    // TODO: may be ask email from user because this api need to expand scope
     const { email } = JSON.parse(
       ex2Str(`gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /user/emails`)
     ).find(({ primary }) => primary)

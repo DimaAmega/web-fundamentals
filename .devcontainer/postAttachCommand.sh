@@ -6,3 +6,5 @@ set -e
 (git pull --ff-only upstream main && git push origin main) || true
 
 pnpm install
+
+echo "READY TO GO 🤩"
