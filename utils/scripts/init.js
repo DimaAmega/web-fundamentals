@@ -101,7 +101,13 @@ function forkAndCloneRepo() {
 }
 
 function configRepo() {
+  // config unsername and email IILE
   ;(() => {
+    if (cmdLineFlags['inside-codespace']) {
+      // we don't need to config username and email inside codespace
+      return
+    }
+
     const { email } = JSON.parse(
       ex2Str(`gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /user/emails`)
     ).find(({ primary }) => primary)
@@ -112,37 +118,34 @@ function configRepo() {
 
     ex(
       `cd ${REPO_FOLDER} \
-      && git config user.name "${login}" \
-      && git config user.email "${email}" \
-      && git config merge.ff only \
-      && gh repo set-default DimaAmega/web-fundamentals`
+        && git config user.name "${login}" \
+        && git config user.email "${email}"`
     )
   })()
+
+  ex(
+    `cd ${REPO_FOLDER} \
+      && git config merge.ff only \
+      && gh repo set-default DimaAmega/web-fundamentals`
+  )
 
   logHeader('repo configured')
 }
 
-function installDeps() {
-  ex(`cd ${REPO_FOLDER} && pnpm install`)
-}
-
-function setupFrontendTools() {
-  ex(`cd ${REPO_FOLDER} && pnpm dlx playwright@1.32.1 install --with-deps`)
-}
+const installDeps = () => ex(`cd ${REPO_FOLDER} && pnpm install`)
+const setupFrontendTools = () => ex(`cd ${REPO_FOLDER} && pnpm dlx playwright@1.32.1 install --with-deps`)
 
 function main() {
-  ;(() => {
-    installCLI({ cliName: 'git', install: installGit, majorRequired: 2 })
-    installCLI({ cliName: 'node', install: installNode, majorRequired: 19 })
-    installCLI({ cliName: 'pnpm', install: installPnpm, majorRequired: 8 })
-    installCLI({ cliName: 'gh', install: installGh, majorRequired: 2 })
+  installCLI({ cliName: 'git', install: installGit, majorRequired: 2 })
+  installCLI({ cliName: 'node', install: installNode, majorRequired: 19 })
+  installCLI({ cliName: 'pnpm', install: installPnpm, majorRequired: 8 })
+  installCLI({ cliName: 'gh', install: installGh, majorRequired: 2 })
 
-    configGh()
-    forkAndCloneRepo()
-    configRepo()
-    installDeps()
-    setupFrontendTools()
-  })()
+  configGh()
+  forkAndCloneRepo()
+  configRepo()
+  installDeps()
+  setupFrontendTools()
 
   logHeader('DONE')
 }
