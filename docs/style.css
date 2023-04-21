@@ -91,7 +91,7 @@ a.custom_link:hover {
 }
 
 :target::before {
-  content: "";
+  content: '';
   display: block;
   margin-top: -80px;
   height: 80px;
