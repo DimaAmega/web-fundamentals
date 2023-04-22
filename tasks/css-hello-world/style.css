@@ -1,1 +1,4 @@
-/* your code goes here */
+p {
+    font: 200 italic 32px Courier New;
+    text-align: left;
+}
