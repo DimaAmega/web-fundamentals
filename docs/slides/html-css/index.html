@@ -174,6 +174,7 @@
       }
 
       .tooltip {
+        text-align: center;
         position: absolute;
         bottom: -20px;
         right: 0;
@@ -184,7 +185,7 @@
         box-shadow: 2px 2px 20px 0 black;
         border: 2px solid black;
         color: white;
-        width: 45%;
+        max-width: 45%;
       }
 
       /*///////////////
@@ -981,7 +982,7 @@
                 </code></pre>
             </div>
             <div>
-              <pre data-id="code-animation"><code data-trim data-line-numbers="3">
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="3">
                 /* css */
                 p {
                   border: 3px dashed red;
@@ -1001,9 +1002,11 @@
               </div>
             </div>
           </div>
-          <ul class="tooltip">
-            <li><code>border</code>: задаем границу</li>
-          </ul>
+          <div class="tooltip">
+            <ul>
+              <li><code>border</code>: задаем границу</li>
+            </ul>
+          </div>
         </section>
 
         <section data-auto-animate>
@@ -1046,9 +1049,11 @@
               </div>
             </div>
           </div>
-          <ul style="visibility: hidden" class="tooltip">
-            <li><code>margin</code>: задаем внешние отступы</li>
-          </ul>
+          <div class="tooltip" style="visibility: hidden">
+            <ul>
+              <li><code>margin</code>: задаем внешние отступы</li>
+            </ul>
+          </div>
         </section>
 
         <section data-auto-animate>
@@ -1070,7 +1075,7 @@
                 </code></pre>
             </div>
             <div>
-              <pre data-id="code-animation"><code data-trim data-line-numbers="4">
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="4">
                 /* css */
                 p {
                   border: 3px dashed red;
@@ -1091,9 +1096,11 @@
               </div>
             </div>
           </div>
-          <ul class="tooltip">
-            <li><code>margin</code>: задаем внешние отступы</li>
-          </ul>
+          <div class="tooltip">
+            <ul>
+              <li><code>margin</code>: задаем внешние отступы</li>
+            </ul>
+          </div>
         </section>
 
         <section data-auto-animate>
@@ -1162,7 +1169,7 @@
                 </code></pre>
             </div>
             <div>
-              <pre data-id="code-animation"><code data-trim data-line-numbers="5">
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="5">
                 /* css */
                 p {
                   border: 3px dashed red;
@@ -1184,9 +1191,11 @@
               </div>
             </div>
           </div>
-          <ul class="tooltip">
-            <li><code>padding</code>: задаем внутренние отступы</li>
-          </ul>
+          <div class="tooltip">
+            <ul>
+              <li><code>padding</code>: задаем внутренние отступы</li>
+            </ul>
+          </div>
         </section>
 
         <section data-auto-animate>
@@ -1315,7 +1324,7 @@
               </div>
             </div>
           </div>
-          <div style="width: 80%" class="tooltip">
+          <div style="max-width: unset; width: 80%; left: 50%; transform: translate(-50%, 0)" class="tooltip">
             <p>Основные свойства блочных элементов</p>
             <ul>
               <li>Блоки располагаются по вертикали друг под другом.</li>
@@ -1346,50 +1355,6 @@
               <li>Текст по умолчанию выравнивается по левому краю.</li>
             </ul>
             <a target="_blank" href="http://htmlbook.ru/samlayout/blochnaya-verstka/blochnye-elementy">htmlbook</a>
-          </div>
-        </section>
-
-        <section data-auto-animate>
-          <h3>CSS/HTML</h3>
-          <h6>Примеры</h6>
-          <div class="flex-horizontal flex-setup-2">
-            <div class="text-085">
-              <pre><code data-trim data-line-numbers>
-                  <!-- html -->
-                  <div>
-                    <div>
-                      <p>Rectangle</p>
-                    </div>
-                    <div>
-                      <p>Circle</p>
-                    </div>
-                  </div>
-                </code></pre>
-            </div>
-            <div>
-              <pre data-id="code-animation"><code data-trim data-line-numbers>
-                /* css */
-                div div {
-                  background: red;
-                  width: 350px;
-                  color: white;
-                }
-              </code></pre>
-            </div>
-
-            <div>
-              <div class="wrap exsp1">
-                <div>
-                  <div>
-                    <p>Rectangle</p>
-                  </div>
-                  <div>
-                    <p>Circle</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p class="tooltip">Ссылаемся на все <code>div</code> внутри <code>div</code></p>
           </div>
         </section>
 
@@ -1765,28 +1730,28 @@
                 </div>
               </div>
             </div>
+          </div>
 
-            <div style="width: 80%" class="tooltip">
-              <p>Основные свойства строчных элементов</p>
-              <ul>
-                <li>
-                  Внутрь строчных элементов допустимо помещать текст или другие строчные элементы. Вставлять блочные элементы
-                  внутрь строчных запрещено.
-                </li>
-                <li>Эффект схлопывания отступов не действует.</li>
-                <li>
-                  Свойства, связанные с размерами (<span class="attribute">width</span>,
-                  <span class="attribute">height</span>) не применимы.
-                </li>
-                <li>Ширина равна содержимому плюс значения отступов, полей и границ.</li>
-                <li>
-                  Несколько строчных элементов идущих подряд располагаются на одной строке и переносятся на другую строку при
-                  необходимости.
-                </li>
-                <li>Можно выравнивать по вертикали с помощью свойства <span class="attribute">vertical-align</span>.</li>
-              </ul>
-              <a target="_blank" href="http://htmlbook.ru/samlayout/blochnaya-verstka/strochnye-elementy">htmlbook</a>
-            </div>
+          <div style="max-width: unset; width: 80%; left: 50%; transform: translate(-50%, 0)" class="tooltip">
+            <p>Основные свойства строчных элементов</p>
+            <ul>
+              <li>
+                Внутрь строчных элементов допустимо помещать текст или другие строчные элементы. Вставлять блочные элементы
+                внутрь строчных запрещено.
+              </li>
+              <li>Эффект схлопывания отступов не действует.</li>
+              <li>
+                Свойства, связанные с размерами (<span class="attribute">width</span>, <span class="attribute">height</span>)
+                не применимы.
+              </li>
+              <li>Ширина равна содержимому плюс значения отступов, полей и границ.</li>
+              <li>
+                Несколько строчных элементов идущих подряд располагаются на одной строке и переносятся на другую строку при
+                необходимости.
+              </li>
+              <li>Можно выравнивать по вертикали с помощью свойства <span class="attribute">vertical-align</span>.</li>
+            </ul>
+            <a target="_blank" href="http://htmlbook.ru/samlayout/blochnaya-verstka/strochnye-elementy">htmlbook</a>
           </div>
         </section>
 
@@ -2048,6 +2013,50 @@
           </div>
 
           <p class="tooltip">Ссылаемся на все параграфы внутри тега <code>&lt;div&gt;</code> на первом уровне вложенности</p>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Примеры</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <div>
+                      <p>Rectangle</p>
+                    </div>
+                    <div>
+                      <p>Circle</p>
+                    </div>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                div div {
+                  background: red;
+                  width: 350px;
+                  color: white;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap exsp1">
+                <div>
+                  <div>
+                    <p>Rectangle</p>
+                  </div>
+                  <div>
+                    <p>Circle</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="tooltip">Ссылаемся на все <code>div</code> внутри <code>div</code></p>
+          </div>
         </section>
       </div>
     </div>
