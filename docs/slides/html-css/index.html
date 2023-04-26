@@ -48,6 +48,13 @@
         cursor: pointer;
       }
 
+      .reveal iframe,
+      .reveal img,
+      .reveal video {
+        max-width: unset;
+        max-height: unset;
+      }
+
       .sp-highlight .highlight-line {
         box-shadow: 3px 3px 30px -2px white;
       }
@@ -72,28 +79,33 @@
         flex-direction: column;
       }
 
-      .flex-setup-1 > *:nth-child(1) {
-        width: 80%;
+      .flex-setup-1 > *:first-child {
+        font-size: 0.9em;
+        width: 70%;
       }
 
       .flex-setup-1 > *:nth-child(2) {
-        width: 20%;
-        font-size: 0.55em;
+        width: 30%;
+        font-size: 0.6em;
       }
 
       .flex-setup-2 pre.code-wrapper {
         font-size: 0.4em;
       }
 
-      .flex-setup-2 > *:nth-child(1) {
-        width: 70%;
+      .flex-setup-2 > *:first-child {
+        width: 65%;
+      }
+
+      .flex-setup-2 code:first-child {
+        max-height: 212px;
       }
 
       .flex-setup-2 > *:nth-child(2) {
-        width: 30%;
+        width: 35%;
       }
 
-      .flex-setup-3 > *:nth-child(1) {
+      .flex-setup-3 > *:first-child {
         width: 50%;
       }
 
@@ -113,63 +125,138 @@
       }
 
       .wrap {
-        font-size: 0.5em;
+        font-size: 0.4em;
       }
 
-      .html_elem .label {
+      .wrap * {
+        border: solid #6ac5ac 3px;
+        position: relative;
+        padding: 5px;
+      }
+
+      .wrap *:before {
         position: absolute;
         top: 0;
         left: 0;
         background-color: #6ac5ac;
         color: black;
+        transform: translateX(-105%) translateY(-50%);
       }
 
-      .html_elem {
-        border: solid #6ac5ac 3px;
-        position: relative;
-        padding: 15px;
+      .wrap *:before {
+        content: attr(tag-name);
+        font-style: normal;
+        border-radius: 5px;
+        padding: 2px;
+        border: 2px solid #3d7465;
       }
 
-      .break {
-        width: 100%;
+      .wrap div[override-tag-name] {
+        padding: 0;
+        margin: 0;
+      }
+
+      .wrap div[override-tag-name] img {
+        padding: 0;
+        margin: 0;
+        border: unset;
+      }
+
+      .wrap p,
+      .wrap div {
+        /* some defaults */
+        margin: 12px;
+      }
+
+      .wrap img {
+        vertical-align: middle;
+        object-fit: contain;
+      }
+
+      .tooltip {
+        position: absolute;
+        bottom: -20px;
+        right: 0;
+        font-size: 0.4em;
+        border-radius: 5px;
+        padding: 20px;
+        background: #000000d7;
+        box-shadow: 2px 2px 20px 0 black;
+        border: 2px solid black;
+        color: white;
+        width: 45%;
       }
 
       /*///////////////
-      // FOR EXAMPLES 
+      // FOR EXAMPLES
       ///////////////*/
 
-      .wrap #ex1 p {
+      .wrap.exsp1 div div {
+        background: red;
+        width: 350px;
+        color: white;
+      }
+
+      .wrap.ex-va-m img {
+        vertical-align: middle;
+      }
+
+      .wrap.ex-va-t img {
+        vertical-align: top;
+      }
+
+      .wrap.ex-va-b img {
+        vertical-align: bottom;
+      }
+
+      .wrap.ex-va-m-w-a img,
+      .wrap.ex-va-m-w-a a {
+        vertical-align: middle;
+      }
+
+      .w-80 {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .wrap.bl-1 p {
+        border: 3px dashed red;
+      }
+
+      .wrap.bl-2 p {
+        border: 3px dashed red;
+        margin: 40px;
+      }
+
+      .wrap.bl-3 p {
+        border: 3px dashed red;
+        margin: 40px;
+        padding: 40px;
+      }
+
+      .wrap.bl-4 p {
+        border: 3px dashed red;
+        margin: 30px;
+        padding: 20px;
+      }
+
+      .wrap.ex1 p {
         color: red;
       }
 
-      .wrap #ex2 p {
-        color: green;
-      }
-
-      .wrap #ex3 p {
-        color: blue;
-        text-align: right;
-      }
-
-      .wrap #ex4 p {
-        color: blue;
-      }
-
-      .wrap #ex5 p:nth-child(1) {
+      .wrap.ex2 p {
         color: red;
+        font-style: italic;
       }
 
-      .wrap #ex6 .color-red {
+      .wrap.ex3 article p {
         color: red;
+        font-style: italic;
       }
 
-      .wrap #ex7 p:nth-child(1) {
+      .wrap.ex4 div > p {
         color: red;
-      }
-
-      .wrap #ex7 p:nth-child(2) {
-        color: blue;
-        text-align: right;
+        font-style: italic;
       }
     </style>
   </head>
@@ -199,12 +286,12 @@
           <h3>HTML</h3>
           <div class="flex-horizontal flex-setup-1">
             <div>
-              <pre data-id="code-animation"><code data-trim><script type="text/template">
-                <TAG attr1="value1" attr2="value2">...</TAG>
+              <pre data-id="code-animation"><code class="language-html" data-trim><script type="text/template">
+                <tag attr1="value1" attr2="value2">...</tag>
                 </script></code></pre>
             </div>
             <div>
-              <p>HTML элемент</p>
+              <p>HTML элемент в общем виде</p>
             </div>
           </div>
         </section>
@@ -213,12 +300,15 @@
           <h3>HTML</h3>
           <div class="flex-horizontal flex-setup-1">
             <div>
-              <pre id="h-tag" data-id="code-animation"><code data-trim><script type="text/template">
-                <TAG attr1="value1" attr2="value2">...&lt;/TAG>
+              <pre
+                id="h-tag-opened-closed"
+                data-id="code-animation"
+              ><code class="language-html" data-trim><script type="text/template">
+                <tag attr1="value1" attr2="value2">...</tag>
                 </script></code></pre>
             </div>
             <div>
-              <p>"TAG": название тега</p>
+              <p>Состоит из двух тегов: открываюший и закрывающий</p>
             </div>
           </div>
         </section>
@@ -227,12 +317,12 @@
           <h3>HTML</h3>
           <div class="flex-horizontal flex-setup-1">
             <div>
-              <pre id="h-tag-opened-closed" data-id="code-animation"><code data-trim><script type="text/template">
-                <TAG attr1="value1" attr2="value2">...&lt;/TAG>
+              <pre id="h-tag" data-id="code-animation"><code  class="language-html" data-trim><script type="text/template">
+                <tag attr1="value1" attr2="value2">...</tag>
                 </script></code></pre>
             </div>
             <div>
-              <p>Открываюший и закрывающий теги</p>
+              <p>"tag": название тега</p>
             </div>
           </div>
         </section>
@@ -241,8 +331,8 @@
           <h3>HTML</h3>
           <div class="flex-horizontal flex-setup-1">
             <div>
-              <pre id="h-attrs" data-id="code-animation"><code data-trim><script type="text/template">
-                <TAG attr1="value1" attr2="value2">...&lt;/TAG>
+              <pre id="h-attrs" data-id="code-animation"><code class="language-html" data-trim><script type="text/template">
+                <tag attr1="value1" attr2="value2">...</tag>
                 </script></code></pre>
             </div>
             <div>
@@ -255,12 +345,26 @@
           <h3>HTML</h3>
           <div class="flex-horizontal flex-setup-1">
             <div>
-              <pre id="h-childs" data-id="code-animation"><code data-trim><script type="text/template">
-                <TAG attr1="value1" attr2="value2">...&lt;/TAG>
+              <pre id="h-childs" data-id="code-animation"><code class="language-html" data-trim><script type="text/template">
+                <tag attr1="value1" attr2="value2">...</tag>
                 </script></code></pre>
             </div>
             <div>
-              <p>Дочерние HTML элементы</p>
+              <p>Cодержимое тега (может содержать дочерние HTML элементы)</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <div class="flex-horizontal flex-setup-1">
+            <div>
+              <pre data-id="code-animation"><code class="language-html" data-trim><script type="text/template">
+                <tag attr1="value1" attr2="value2">
+                </script></code></pre>
+            </div>
+            <div>
+              <p>HTML элемент может не иметь закрывающего тега (следовательно и дочерних элементов)</p>
             </div>
           </div>
         </section>
@@ -270,25 +374,11 @@
           <div class="flex-horizontal flex-setup-1">
             <div>
               <pre data-id="code-animation"><code data-trim><script type="text/template">
-                <TAG attr1="value1" attr2="value2">
+                <tag>
                 </script></code></pre>
             </div>
             <div>
-              <p>HTML элемент может не иметь закрывающего тега и дочерних элементов</p>
-            </div>
-          </div>
-        </section>
-
-        <section data-auto-animate>
-          <h3>HTML</h3>
-          <div class="flex-horizontal flex-setup-1">
-            <div>
-              <pre data-id="code-animation"><code data-trim><script type="text/template">
-                <TAG>
-                </script></code></pre>
-            </div>
-            <div>
-              <p>а также не иметь аттрибуты</p>
+              <p>а также не иметь аттрибутов</p>
             </div>
           </div>
         </section>
@@ -313,7 +403,7 @@
             </code></pre>
             </div>
             <div>
-              <p>Базовая структура html документа</p>
+              <p>Базовая структура (разметка) html документа</p>
             </div>
           </div>
         </section>
@@ -503,7 +593,7 @@
           <h3>HTML</h3>
           <div class="flex-horizontal flex-setup-1">
             <div>
-              <pre style="font-size: 0.3em" data-id="code-animation"><code data-trim data-line-numbers>
+              <pre style="font-size: 0.4em" data-id="code-animation"><code data-trim data-line-numbers>
                 &lt;!DOCTYPE html&gt;
                 &lt;html lang=&quot;en&quot;&gt;
                 &lt;head&gt;
@@ -516,18 +606,18 @@
                 &lt;div id=&quot;links&quot;&gt;
                     &lt;ul&gt;
                       &lt;li&gt;
-                        &lt;a href=&quot;#&quot; target=&quot;_blank&quot;&gt; HOME &lt;/a&gt;
+                        &lt;a href=&quot;#&quot;&gt;HOME&lt;/a&gt;
                       &lt;/li&gt;
                       &lt;li&gt;
-                        &lt;a href=&quot;#&quot; target=&quot;_blank&quot;&gt; BLOG &lt;/a&gt;
+                        &lt;a href=&quot;#&quot;&gt;BLOG&lt;/a&gt;
                       &lt;/li&gt;
                       &lt;li&gt;
-                        &lt;a href=&quot;#&quot; target=&quot;_blank&quot;&gt; CONTACT US &lt;/a&gt;
+                        &lt;a href=&quot;#&quot;&gt;CONTCT US&lt;/a&gt;
                       &lt;/li&gt;
                       &lt;li&gt;
-                        &lt;a href=&quot;#&quot; target=&quot;_blank&quot;&gt; ABOUT &lt;/a&gt;
+                        &lt;a href=&quot;#&quot;&gt;ABOUT&lt;/a&gt;
                       &lt;/li&gt;
-                      &lt;li&gt;&copy; 2022&lt;/li&gt;
+                      &lt;li&gt;&copy; 2023&lt;/li&gt;
                     &lt;/ul&gt;
                 &lt;/div&gt;
                 &lt;/body&gt;
@@ -586,7 +676,7 @@
             </code></pre>
             </div>
             <div>
-              <p>CSS правило в общем виде</p>
+              <p>набор CSS правил в общем виде</p>
             </div>
           </div>
         </section>
@@ -596,23 +686,6 @@
           <div class="flex-horizontal flex-setup-3">
             <div>
               <pre id="c-selector" class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers>
-                selector {
-                  prop1: "value1";
-                  prop2: "value2";
-                }
-            </code></pre>
-            </div>
-            <div>
-              <p>Селектор - строка, ссылающаяся на html элементы в DOM дереве</p>
-            </div>
-          </div>
-        </section>
-
-        <section data-auto-animate>
-          <h3>CSS</h3>
-          <div class="flex-horizontal flex-setup-3">
-            <div>
-              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="1">
                 selector {
                   prop1: "value1";
                   prop2: "value2";
@@ -663,7 +736,41 @@
           <h3>CSS</h3>
           <div class="flex-horizontal flex-setup-3">
             <div>
-              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="2">
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="1">
+                p, a {
+                  prop1: "value1";
+                  prop2: "value2";
+                }
+            </code></pre>
+            </div>
+            <div>
+              <p>Ссылаемся на все ссылки и на все параграфы</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS</h3>
+          <div class="flex-horizontal flex-setup-3">
+            <div>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="1">
+                selector {
+                  prop1: "value1";
+                  prop2: "value2";
+                }
+            </code></pre>
+            </div>
+            <div>
+              <p>Более подробное построение селекторов мы рассмотрим далее</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS</h3>
+          <div class="flex-horizontal flex-setup-3">
+            <div>
+              <pre id="css-decl-1" class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers>
                 selector {
                   prop1: "value1";
                   prop2: "value2";
@@ -680,7 +787,7 @@
           <h3>CSS</h3>
           <div class="flex-horizontal flex-setup-3">
             <div>
-              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="3">
+              <pre id="css-decl-2" class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers>
                 selector {
                   prop1: "value1";
                   prop2: "value2";
@@ -744,7 +851,7 @@
             </code></pre>
             </div>
             <div>
-              <p>Несколько CSS блоков</p>
+              <p>Несколько наборов CSS правил</p>
             </div>
           </div>
         </section>
@@ -766,21 +873,65 @@
             </code></pre>
             </div>
             <div>
-              <p>Несколько CSS блоков</p>
+              <p>Несколько наборов CSS правил</p>
             </div>
           </div>
         </section>
 
         <section data-auto-animate>
           <h3>CSS/HTML</h3>
+          <h6>Блочные элементы</h6>
           <div class="flex-horizontal flex-setup-2">
             <div class="text-085">
               <pre><code data-trim data-line-numbers>
                   <!-- html -->
                   <div>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      totam inventore praesentium rem ipsam doloremque eveniet
+                      Lorem ipsum dolor sit amet consectetur, 
+                      adipisicing elit. Debitis nemo assumenda soluta
+                      iste obcaecati aliquid quibusdam blanditiis tenetur
+                      distinctio perspiciatis! Repellat nam vitae omnis
+                      impedit, ab commodi minus debitis quisquam.
+                    </p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                /* empty for now */
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap w-80">
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis nemo assumenda soluta iste obcaecati
+                    aliquid quibusdam blanditiis tenetur distinctio perspiciatis! Repellat nam vitae omnis impedit, ab
+                    commodi minus debitis quisquam.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="tooltip fragment">Блочная модель/Модель коробки</p>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Блочные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, 
+                      adipisicing elit. Debitis nemo assumenda soluta
+                      iste obcaecati aliquid quibusdam blanditiis tenetur
+                      distinctio perspiciatis! Repellat nam vitae omnis
+                      impedit, ab commodi minus debitis quisquam.
                     </p>
                   </div>
                 </code></pre>
@@ -789,20 +940,889 @@
               <pre data-id="code-animation"><code data-trim data-line-numbers>
                 /* css */
                 p {
-                  color: red;
+                  border: 3px dashed red;
                 }
               </code></pre>
             </div>
-            <div class="break"></div>
+
             <div>
-              <div class="wrap html_elem">
-                <span class="label">&lt;div&gt;</span>
+              <div class="wrap w-80 bl-1">
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis nemo assumenda soluta iste obcaecati
+                    aliquid quibusdam blanditiis tenetur distinctio perspiciatis! Repellat nam vitae omnis impedit, ab
+                    commodi minus debitis quisquam.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul style="visibility: hidden" class="tooltip">
+            <li><code>border</code>: задаем границу</li>
+          </ul>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Блочные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, 
+                      adipisicing elit. Debitis nemo assumenda soluta
+                      iste obcaecati aliquid quibusdam blanditiis tenetur
+                      distinctio perspiciatis! Repellat nam vitae omnis
+                      impedit, ab commodi minus debitis quisquam.
+                    </p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers="3">
+                /* css */
+                p {
+                  border: 3px dashed red;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap w-80 bl-1">
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis nemo assumenda soluta iste obcaecati
+                    aliquid quibusdam blanditiis tenetur distinctio perspiciatis! Repellat nam vitae omnis impedit, ab
+                    commodi minus debitis quisquam.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul class="tooltip">
+            <li><code>border</code>: задаем границу</li>
+          </ul>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Блочные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, 
+                      adipisicing elit. Debitis nemo assumenda soluta
+                      iste obcaecati aliquid quibusdam blanditiis tenetur
+                      distinctio perspiciatis! Repellat nam vitae omnis
+                      impedit, ab commodi minus debitis quisquam.
+                    </p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                p {
+                  border: 3px dashed red;
+                  margin: 40px;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap w-80 bl-2">
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis nemo assumenda soluta iste obcaecati
+                    aliquid quibusdam blanditiis tenetur distinctio perspiciatis! Repellat nam vitae omnis impedit, ab
+                    commodi minus debitis quisquam.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul style="visibility: hidden" class="tooltip">
+            <li><code>margin</code>: задаем внешние отступы</li>
+          </ul>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Блочные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, 
+                      adipisicing elit. Debitis nemo assumenda soluta
+                      iste obcaecati aliquid quibusdam blanditiis tenetur
+                      distinctio perspiciatis! Repellat nam vitae omnis
+                      impedit, ab commodi minus debitis quisquam.
+                    </p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers="4">
+                /* css */
+                p {
+                  border: 3px dashed red;
+                  margin: 40px;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap w-80 bl-2">
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis nemo assumenda soluta iste obcaecati
+                    aliquid quibusdam blanditiis tenetur distinctio perspiciatis! Repellat nam vitae omnis impedit, ab
+                    commodi minus debitis quisquam.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul class="tooltip">
+            <li><code>margin</code>: задаем внешние отступы</li>
+          </ul>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Блочные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, 
+                      adipisicing elit. Debitis nemo assumenda soluta
+                      iste obcaecati aliquid quibusdam blanditiis tenetur
+                      distinctio perspiciatis! Repellat nam vitae omnis
+                      impedit, ab commodi minus debitis quisquam.
+                    </p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                p {
+                  border: 3px dashed red;
+                  margin: 40px;
+                  padding: 40px;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap w-80 bl-3">
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis nemo assumenda soluta iste obcaecati
+                    aliquid quibusdam blanditiis tenetur distinctio perspiciatis! Repellat nam vitae omnis impedit, ab
+                    commodi minus debitis quisquam.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul style="visibility: hidden" class="tooltip">
+            <li><code>border</code>: задаем границу</li>
+            <li><code>margin</code>: задаем внешние отступы</li>
+          </ul>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Блочные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, 
+                      adipisicing elit. Debitis nemo assumenda soluta
+                      iste obcaecati aliquid quibusdam blanditiis tenetur
+                      distinctio perspiciatis! Repellat nam vitae omnis
+                      impedit, ab commodi minus debitis quisquam.
+                    </p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers="5">
+                /* css */
+                p {
+                  border: 3px dashed red;
+                  margin: 40px;
+                  padding: 40px;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap w-80 bl-3">
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis nemo assumenda soluta iste obcaecati
+                    aliquid quibusdam blanditiis tenetur distinctio perspiciatis! Repellat nam vitae omnis impedit, ab
+                    commodi minus debitis quisquam.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul class="tooltip">
+            <li><code>padding</code>: задаем внутренние отступы</li>
+          </ul>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Блочные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, 
+                      adipisicing elit. Debitis nemo assumenda soluta
+                      iste obcaecati aliquid quibusdam blanditiis tenetur
+                      distinctio perspiciatis! Repellat nam vitae omnis
+                      impedit, ab commodi minus debitis quisquam.
+                    </p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                p {
+                  border: 3px dashed red;
+                  margin: 40px;
+                  padding: 40px;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap w-80 bl-3">
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis nemo assumenda soluta iste obcaecati
+                    aliquid quibusdam blanditiis tenetur distinctio perspiciatis! Repellat nam vitae omnis impedit, ab
+                    commodi minus debitis quisquam.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tooltip">
+            <p>Итого:</p>
+            <ul>
+              <li><code>border</code>: задаем границу</li>
+              <li><code>margin</code>: задаем внешние отступы</li>
+              <li><code>padding</code>: задаем внутренние отступы</li>
+            </ul>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Блочные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    </p>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    </p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                p {
+                  border: 3px dashed red;
+                  margin: 30px;
+                  padding: 20px;
+                }
+              </code></pre>
+            </div>
+            <div>
+              <div class="wrap bl-4">
+                <div>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                </div>
+              </div>
+            </div>
+            <p class="tooltip fragment">Несколько параграфов друг за другом. Эффект схлопывания внешних отступов</p>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Блочные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    </p>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    </p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                p {
+                  border: 3px dashed red;
+                  margin: 30px;
+                  padding: 20px;
+                }
+              </code></pre>
+            </div>
+            <div>
+              <div class="wrap bl-4">
+                <div>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="width: 80%" class="tooltip">
+            <p>Основные свойства блочных элементов</p>
+            <ul>
+              <li>Блоки располагаются по вертикали друг под другом.</li>
+              <li>На прилегающих сторонах элементов действует эффект схлопывания отступов.</li>
+              <li>
+                Запрещено вставлять блочный элемент внутрь строчного. Например,
+                <span class="tag">&lt;a&gt;&lt;h1&gt;</span>Заголовок<span class="tag">&lt;/h1&gt;&lt;/a&gt;</span> не
+                пройдёт валидацию, правильно вложить теги наоборот&nbsp;—
+                <span class="tag">&lt;h1&gt;&lt;a&gt;</span>Заголовок<span class="tag">&lt;/a&gt;&lt;/h1&gt;</span>.
+              </li>
+              <li>По ширине блочные элементы занимают всё допустимое пространство.</li>
+              <li>
+                Если задана ширина контента (свойство <span class="attribute">width</span>), то ширина блока складывается из
+                значений <span class="attribute">width</span>, полей, границ, отступов слева и справа. (есть нюанс, смотри
+                свойство <code>box-sizing: border-box</code> )
+              </li>
+              <li>Высота блочного элемента вычисляется браузером автоматически, исходя из содержимого блока.</li>
+              <li>
+                Если задана высота контента (свойство <span class="attribute">height</span>), то высота блока складывается из
+                значения <span class="attribute">height</span>, полей, границ, отступов сверху и снизу. При превышении
+                указанной высоты контент отображается поверх блока. (есть нюанс, смотри свойство
+                <code>box-sizing: border-box</code> )
+              </li>
+              <li>
+                На блочные элементы не действуют свойства, предназначенные для строчных элементов, вроде
+                <span class="attribute">vertical-align</span>.
+              </li>
+              <li>Текст по умолчанию выравнивается по левому краю.</li>
+            </ul>
+            <a target="_blank" href="http://htmlbook.ru/samlayout/blochnaya-verstka/blochnye-elementy">htmlbook</a>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Примеры</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <div>
+                      <p>Rectangle</p>
+                    </div>
+                    <div>
+                      <p>Circle</p>
+                    </div>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                div div {
+                  background: red;
+                  width: 350px;
+                  color: white;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap exsp1">
+                <div>
+                  <div>
+                    <p>Rectangle</p>
+                  </div>
+                  <div>
+                    <p>Circle</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="tooltip">Ссылаемся на все <code>div</code> внутри <code>div</code></p>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Строчные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre data-id="code-animation-html"><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <img src="https://dummyimage.com/200x100/000/fff.png" >
+                    <img src="https://dummyimage.com/200x100/000/fff.png" >
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                /* empty for now */
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap">
+                <div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Строчные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre data-id="code-animation-html"><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                /* empty for now */
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap">
+                <div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="tooltip">Добавим еще один элемент</p>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Строчные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre data-id="code-animation-html"><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                /* empty for now */
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap w-80 text-align-left">
+                <div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="tooltip">И еще один элемент</p>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Строчные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre data-id="code-animation-html"><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                    <img src="https://dummyimage.com/200x150/000/fff.png" />
+                    <img src="https://dummyimage.com/200x60/000/fff.png" />
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                /* empty for now */
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap">
+                <div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x150/000/fff.png" />
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x60/000/fff.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="tooltip">Рассмотрим свойство vertical-align</p>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Строчные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre data-id="code-animation-html"><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                    <img src="https://dummyimage.com/200x150/000/fff.png" />
+                    <img src="https://dummyimage.com/200x60/000/fff.png" />
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                img {
+                  vertical-align: middle;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap ex-va-m">
+                <div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x150/000/fff.png" />
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x60/000/fff.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="tooltip"><code>vertical-align: middle</code></p>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Строчные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre data-id="code-animation-html"><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                    <img src="https://dummyimage.com/200x150/000/fff.png" />
+                    <img src="https://dummyimage.com/200x60/000/fff.png" />
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                img {
+                  vertical-align: top;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap ex-va-t">
+                <div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x150/000/fff.png" />
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x60/000/fff.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="tooltip"><code>vertical-align: top</code></p>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Строчные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre data-id="code-animation-html"><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                    <img src="https://dummyimage.com/200x150/000/fff.png" />
+                    <img src="https://dummyimage.com/200x60/000/fff.png" />
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                img {
+                  vertical-align: bottom;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap ex-va-b">
+                <div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x150/000/fff.png" />
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x60/000/fff.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="tooltip"><code>vertical-align: bottom</code></p>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Строчные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre data-id="code-animation-html"><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                    <img src="https://dummyimage.com/200x150/000/fff.png" />
+                    <a href="/to/somewhere">link</a>
+                    <img src="https://dummyimage.com/200x60/000/fff.png" />
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                img, a {
+                  vertical-align: middle;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap ex-va-m-w-a">
+                <div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x150/000/fff.png" />
+                  </div>
+                  <div override-tag-name="a" style="display: inline-block">
+                    <a href="/to/somewhere">link</a>
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x60/000/fff.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="tooltip"><code>Комбинируется с другими inline элементами</code></p>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Строчные элементы</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre data-id="code-animation-html"><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                /* empty for now */
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap">
+                <div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                  <div override-tag-name="img" style="display: inline-block">
+                    <img src="https://dummyimage.com/200x100/000/fff.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="width: 80%" class="tooltip">
+              <p>Основные свойства строчных элементов</p>
+              <ul>
+                <li>
+                  Внутрь строчных элементов допустимо помещать текст или другие строчные элементы. Вставлять блочные элементы
+                  внутрь строчных запрещено.
+                </li>
+                <li>Эффект схлопывания отступов не действует.</li>
+                <li>
+                  Свойства, связанные с размерами (<span class="attribute">width</span>,
+                  <span class="attribute">height</span>) не применимы.
+                </li>
+                <li>Ширина равна содержимому плюс значения отступов, полей и границ.</li>
+                <li>
+                  Несколько строчных элементов идущих подряд располагаются на одной строке и переносятся на другую строку при
+                  необходимости.
+                </li>
+                <li>Можно выравнивать по вертикали с помощью свойства <span class="attribute">vertical-align</span>.</li>
+              </ul>
+              <a target="_blank" href="http://htmlbook.ru/samlayout/blochnaya-verstka/strochnye-elementy">htmlbook</a>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Примеры</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <article>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    </article>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                /* empty for now */
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap">
                 <div id="ex1">
-                  <p class="html_elem">
-                    <span class="label">&lt;p&gt;</span>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. totam inventore praesentium rem ipsam doloremque
-                    eveniet
-                  </p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  <article>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  </article>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                 </div>
               </div>
             </div>
@@ -811,15 +1831,18 @@
 
         <section data-auto-animate>
           <h3>CSS/HTML</h3>
+          <h6>Примеры</h6>
           <div class="flex-horizontal flex-setup-2">
             <div class="text-085">
               <pre><code data-trim data-line-numbers>
                   <!-- html -->
                   <div>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      totam inventore praesentium rem ipsam doloremque eveniet
-                    </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <article>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    </article>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                   </div>
                 </code></pre>
             </div>
@@ -827,37 +1850,42 @@
               <pre data-id="code-animation"><code data-trim data-line-numbers>
                 /* css */
                 p {
-                  color: green;
+                  color: red;
                 }
               </code></pre>
             </div>
 
             <div>
-              <div class="wrap html_elem">
-                <span class="label">&lt;div&gt;</span>
-                <div id="ex2">
-                  <p class="html_elem">
-                    <span class="label">&lt;p&gt;</span>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. totam inventore praesentium rem ipsam doloremque
-                    eveniet
-                  </p>
+              <div class="wrap ex1">
+                <div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  <article>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  </article>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                 </div>
               </div>
             </div>
           </div>
+
+          <p class="tooltip">Все параграфы имеют зеленый цвет</p>
         </section>
 
         <section data-auto-animate>
           <h3>CSS/HTML</h3>
+          <h6>Примеры</h6>
           <div class="flex-horizontal flex-setup-2">
             <div class="text-085">
               <pre><code data-trim data-line-numbers>
                   <!-- html -->
                   <div>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      totam inventore praesentium rem ipsam doloremque eveniet
-                    </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <article>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    </article>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                   </div>
                 </code></pre>
             </div>
@@ -865,226 +1893,161 @@
               <pre data-id="code-animation"><code data-trim data-line-numbers>
                 /* css */
                 p {
-                  color: blue;
-                  text-align: right;
-                }
-              </code></pre>
-            </div>
-
-            <div>
-              <div class="wrap html_elem">
-                <span class="label">&lt;div&gt;</span>
-                <div id="ex3">
-                  <p class="html_elem">
-                    <span class="label">&lt;p&gt;</span>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. totam inventore praesentium rem ipsam doloremque
-                    eveniet
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section data-auto-animate>
-          <h3>CSS/HTML</h3>
-          <div class="flex-horizontal flex-setup-2">
-            <div class="text-085">
-              <pre><code data-trim data-line-numbers>
-                  <!-- html -->
-                  <div>
-                    <p>
-                      Lorem ipsum dolor sit <a href="">amet</a> consectetur adipisicing elit.
-                      totam <a href="">inventore</a> praesentium rem ipsam doloremque eveniet
-                    </p>
-                    <p>
-                      Lorem ipsum dolor sit <a href="">amet</a> consectetur adipisicing elit.
-                      totam <a href="">inventore</a> praesentium rem ipsam doloremque eveniet
-                    </p>
-                  </div>
-                </code></pre>
-            </div>
-            <div>
-              <pre data-id="code-animation"><code data-trim data-line-numbers>
-                /* css */
-                p {
-                  color: blue;
-                }
-              </code></pre>
-            </div>
-
-            <div>
-              <div class="wrap html_elem">
-                <span class="label">&lt;div&gt;</span>
-                <div id="ex4">
-                  <p class="html_elem">
-                    <span class="label">&lt;p&gt;</span>
-                    Lorem ipsum dolor sit <a href="javascript:window.location.reload(true)">amet</a> consectetur adipisicing
-                    elit. totam <a href="javascript:window.location.reload(true)">inventore</a> praesentium rem ipsam
-                    doloremque eveniet
-                  </p>
-                  <p class="html_elem">
-                    <span class="label">&lt;p&gt;</span>
-                    Lorem ipsum dolor sit <a href="javascript:window.location.reload(true)">amet</a> consectetur adipisicing
-                    elit. totam <a href="javascript:window.location.reload(true)">inventore</a> praesentium rem ipsam
-                    doloremque eveniet
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section data-auto-animate>
-          <h3>CSS/HTML</h3>
-          <div class="flex-horizontal flex-setup-2">
-            <div class="text-085">
-              <pre><code data-trim data-line-numbers>
-                  <!-- html -->
-                  <div>
-                    <p class="color-red">
-                      Lorem ipsum dolor sit <a href="">amet</a> consectetur adipisicing elit.
-                      totam <a href="">inventore</a> praesentium rem ipsam doloremque eveniet
-                    </p>
-                    <p>
-                      Lorem ipsum dolor sit <a href="">amet</a> consectetur adipisicing elit.
-                      totam <a href="">inventore</a> praesentium rem ipsam doloremque eveniet
-                    </p>
-                  </div>
-                </code></pre>
-            </div>
-            <div>
-              <pre data-id="code-animation"><code data-trim data-line-numbers>
-                /* css */
-                .color-red {
                   color: red;
+                  font-style: italic;
                 }
               </code></pre>
             </div>
 
             <div>
-              <div class="wrap html_elem">
-                <span class="label">&lt;div&gt;</span>
-                <div id="ex6">
-                  <p class="color-red html_elem">
-                    <span class="label">&lt;p class="color-red"&gt;</span>
-                    Lorem ipsum dolor sit <a href="javascript:window.location.reload(true)">amet</a> consectetur adipisicing
-                    elit. totam <a href="javascript:window.location.reload(true)">inventore</a> praesentium rem ipsam
-                    doloremque eveniet
-                  </p>
-                  <p class="html_elem">
-                    <span class="label">&lt;p&gt;</span>
-                    Lorem ipsum dolor sit <a href="javascript:window.location.reload(true)">amet</a> consectetur adipisicing
-                    elit. totam <a href="javascript:window.location.reload(true)">inventore</a> praesentium rem ipsam
-                    doloremque eveniet
-                  </p>
+              <div class="wrap ex2">
+                <div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  <article>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  </article>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                 </div>
               </div>
             </div>
           </div>
+
+          <p class="tooltip">а также курсивное начертание</p>
         </section>
 
         <section data-auto-animate>
           <h3>CSS/HTML</h3>
+          <h6>Примеры</h6>
           <div class="flex-horizontal flex-setup-2">
             <div class="text-085">
-              <pre><code data-trim data-line-numbers>
+              <pre><code class="language-html" data-trim data-line-numbers="5-6">
                   <!-- html -->
                   <div>
-                    <p>
-                      Lorem ipsum dolor sit <a href="">amet</a> consectetur adipisicing elit.
-                      totam <a href="">inventore</a> praesentium rem ipsam doloremque eveniet
-                    </p>
-                    <p>
-                      Lorem ipsum dolor sit <a href="">amet</a> consectetur adipisicing elit.
-                      totam <a href="">inventore</a> praesentium rem ipsam doloremque eveniet
-                    </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <article>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    </article>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                   </div>
                 </code></pre>
             </div>
             <div>
               <pre data-id="code-animation"><code data-trim data-line-numbers>
                 /* css */
-                p:nth-child(1) {
+                article p {
                   color: red;
+                  font-style: italic;
                 }
               </code></pre>
             </div>
 
             <div>
-              <div class="wrap html_elem">
-                <span class="label">&lt;div&gt;</span>
-                <div id="ex5">
-                  <p class="first html_elem">
-                    <span class="label">p:nth-child(1)</span>
-                    Lorem ipsum dolor sit <a href="javascript:window.location.reload(true)">amet</a> consectetur adipisicing
-                    elit. totam <a href="javascript:window.location.reload(true)">inventore</a> praesentium rem ipsam
-                    doloremque eveniet
-                  </p>
-                  <p class="first html_elem">
-                    <span class="label">&lt;p&gt;</span>
-                    Lorem ipsum dolor sit <a href="javascript:window.location.reload(true)">amet</a> consectetur adipisicing
-                    elit. totam <a href="javascript:window.location.reload(true)">inventore</a> praesentium rem ipsam
-                    doloremque eveniet
-                  </p>
+              <div class="wrap ex3">
+                <div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  <article>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  </article>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                 </div>
               </div>
             </div>
           </div>
+
+          <p class="tooltip">Ссылаемся на все параграфы внутри тега <code>&lt;article&gt;</code></p>
         </section>
 
         <section data-auto-animate>
           <h3>CSS/HTML</h3>
+          <h6>Примеры</h6>
           <div class="flex-horizontal flex-setup-2">
             <div class="text-085">
-              <pre><code data-trim data-line-numbers>
+              <pre><code data-trim data-line-numbers="3,8">
                   <!-- html -->
                   <div>
-                    <p>
-                      Lorem ipsum dolor sit <a href="">amet</a> consectetur adipisicing elit.
-                      totam <a href="">inventore</a> praesentium rem ipsam doloremque eveniet
-                    </p>
-                    <p>
-                      Lorem ipsum dolor sit <a href="">amet</a> consectetur adipisicing elit.
-                      totam <a href="">inventore</a> praesentium rem ipsam doloremque eveniet
-                    </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <article>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    </article>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                   </div>
                 </code></pre>
             </div>
             <div>
               <pre data-id="code-animation"><code data-trim data-line-numbers>
                 /* css */
-                p:nth-child(1) {
+                div > p {
                   color: red;
-                }
-
-                p:nth-child(2) {
-                  color: blue;
-                  text-align: right;
+                  font-style: italic;
                 }
               </code></pre>
             </div>
 
             <div>
-              <div class="wrap html_elem">
-                <span class="label">&lt;div&gt;</span>
-                <div id="ex7">
-                  <p class="first html_elem">
-                    <span class="label">p:nth-child(1)</span>
-                    Lorem ipsum dolor sit <a href="javascript:window.location.reload(true)">amet</a> consectetur adipisicing
-                    elit. totam <a href="javascript:window.location.reload(true)">inventore</a> praesentium rem ipsam
-                    doloremque eveniet
-                  </p>
-                  <p class="first html_elem">
-                    <span class="label">p:nth-child(2)</span>
-                    Lorem ipsum dolor sit <a href="javascript:window.location.reload(true)">amet</a> consectetur adipisicing
-                    elit. totam <a href="javascript:window.location.reload(true)">inventore</a> praesentium rem ipsam
-                    doloremque eveniet
-                  </p>
+              <div class="wrap ex4">
+                <div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  <article>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  </article>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                 </div>
               </div>
             </div>
           </div>
+
+          <p class="tooltip">
+            Ссылаемся на все параграфы внутри тега <code>&lt;div&gt;</code>, на первом уровне вложенности
+          </p>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Примеры</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre><code class="language-html" data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p >Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <article>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    </article>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                div > p {
+                  color: red;
+                  font-style: italic;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap ex4">
+                <div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  <article>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  </article>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="tooltip">Ссылаемся на все параграфы внутри тега <code>&lt;div&gt;</code> на первом уровне вложенности</p>
         </section>
       </div>
     </div>
@@ -1120,8 +2083,8 @@
 
       function manualHighlight(id, contents) {
         replaceNodeType3ToSpan(`#${id} code`)
-        unHighlight(`#${id} code span`)
-        highlightByContent(`#${id} code span`, contents)
+        unHighlight(`#${id} code span:not(:has(span))`)
+        highlightByContent(`#${id} code span:not(:has(span))`, contents)
         console.log('****')
       }
 
@@ -1141,22 +2104,35 @@
       }
 
       function replaceNodeType3ToSpan(id) {
-        const x = document.querySelector(id)
-        x.childNodes.forEach((e) => {
-          if (e.nodeType === 3) {
-            e.before(createElementFromHTML(`<span>${e.textContent}</span>`))
-            e.remove()
-          }
+        const x = document.querySelectorAll(`${id}, ${id} .hljs-tag`)
+
+        x.forEach((a) => {
+          a.childNodes.forEach((e) => {
+            if (e.nodeType === 3) {
+              e.before(createElementFromHTML(`<span>${e.textContent === '</' ? '&lt;/' : e.textContent}</span>`))
+              e.remove()
+            }
+          })
         })
       }
 
-      manualHighlight('h-tag', ['TAG'])
-      manualHighlight('h-tag-opened-closed', ['TAG', '&lt;', '&gt;', '&lt;/'])
-      manualHighlight('h-attrs', [' attr1=', '"value1"', ' attr2=', '"value2"'])
+      manualHighlight('h-tag', ['tag'])
+      manualHighlight('h-tag-opened-closed', ['tag', '&lt;', '&gt;', '&lt;/'])
+      manualHighlight('h-attrs', ['attr1', '"value1"', 'attr2', '"value2"'])
       manualHighlight('h-childs', ['...'])
 
       manualHighlight('c-selector', ['selector '])
+      manualHighlight('css-decl-1', ['  prop1:', '"value1"'])
+      manualHighlight('css-decl-2', ['  prop2:', '"value2"'])
+
       // TODO others
+    </script>
+
+    <script>
+      document.querySelectorAll('.wrap *').forEach((e) => {
+        const tagName = `<${e.getAttribute('override-tag-name') || e.tagName}>`.toLowerCase()
+        e.setAttribute('tag-name', tagName)
+      })
     </script>
   </body>
 </html>
