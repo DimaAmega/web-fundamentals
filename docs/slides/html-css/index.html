@@ -334,6 +334,11 @@
         color: red;
         font-style: italic;
       }
+
+      .wrap.custom_special_class_selector-ex-v2 *[class='my-class'] {
+        color: red;
+        font-style: italic;
+      }
     </style>
   </head>
 
@@ -2421,6 +2426,52 @@
 
           <div class="tooltip">
             <p>Сослаться на все элементы определенного "класса". Нет ограничения на уникальность</p>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Примеры</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre class="sp-highlight" id="class-attr-ex"><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <article>
+                      <p class="my-class">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    </article>
+                    <p class="my-class">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre class="sp-highlight" class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="2">
+                /* css */
+                *[class="my-class"] {
+                  color: red;
+                  font-style: italic;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap custom_special_class_selector-ex-v2">
+                <div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  <article>
+                    <p class="my-class">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  </article>
+                  <p class="my-class">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tooltip">
+            <p>Эквивалент</p>
           </div>
         </section>
 
