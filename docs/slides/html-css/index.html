@@ -30,6 +30,10 @@
         font-family: Comfortaa !important;
       }
 
+      li {
+        margin: 7px;
+      }
+
       .reveal a {
         all: unset;
       }
@@ -97,7 +101,11 @@
         width: 65%;
       }
 
-      .flex-setup-2 code:first-child {
+      .flex-setup-2 > div:nth-child(1) code {
+        max-height: 212px;
+      }
+
+      .flex-setup-2 > div:nth-child(2) code {
         max-height: 212px;
       }
 
@@ -112,6 +120,26 @@
       .flex-setup-3 > *:nth-child(2) {
         width: 50%;
         font-size: 0.7em;
+      }
+
+      .flex-setup-4 pre.code-wrapper {
+        font-size: 0.4em;
+      }
+
+      .flex-setup-4 > *:first-child {
+        width: 50%;
+      }
+
+      .flex-setup-4 > *:nth-child(2) {
+        width: 50%;
+      }
+
+      .flex-setup-4 > div:nth-child(1) code {
+        max-height: 170px;
+      }
+
+      .flex-setup-4 > div:nth-child(2) code {
+        max-height: 170px;
       }
 
       .reveal .wrap a {
@@ -143,12 +171,14 @@
         left: 0;
         background-color: #6ac5ac;
         color: black;
+        white-space: nowrap;
         transform: translateX(-105%) translateY(-50%);
       }
 
       .wrap *[tag-name]:before {
         content: attr(tag-name);
         font-style: normal;
+        font-family: monospace;
         border-radius: 5px;
         padding: 2px;
         border: 2px solid #3d7465;
@@ -187,17 +217,32 @@
         box-shadow: 2px 2px 20px 0 black;
         border: 2px solid black;
         color: white;
-        max-width: 45%;
+        max-width: 42%;
       }
 
       /*///////////////
       // FOR EXAMPLES
       ///////////////*/
 
-      .wrap.exsp1 div div {
-        background: red;
-        width: 350px;
-        color: white;
+      .wrap.ex-figures .figures {
+        padding: 20px;
+        border: 3px dashed blue;
+      }
+
+      .wrap.ex-figures .figures > * {
+        border: 3px solid red;
+        margin: 10px auto;
+      }
+
+      .wrap.ex-figures .figures .circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+
+      .wrap.ex-figures .figures .rectangle {
+        width: 70px;
+        height: 40px;
       }
 
       .wrap.ex-va-m img {
@@ -273,6 +318,21 @@
       .wrap.ex-6 p span {
         border: 3px dashed red;
         color: blue;
+      }
+
+      .wrap.ex-id #my-id {
+        color: red;
+        font-style: italic;
+      }
+
+      .wrap.custom_special_p_id_selector-ex *[id='my-id'] {
+        color: red;
+        font-style: italic;
+      }
+
+      .wrap.custom_special_class_selector-ex .my-class {
+        color: red;
+        font-style: italic;
       }
     </style>
   </head>
@@ -666,13 +726,27 @@
           />
         </section>
 
-        <section>
+        <section data-auto-animate>
           <h3>HTML</h3>
           <h5>DOM</h5>
           <img
             class="r-stretch"
             src="https://user-images.githubusercontent.com/32310771/233228238-5a06d382-6372-458d-a7f3-b6d6c11c1ab1.png"
           />
+        </section>
+
+        <section data-auto-animate>
+          <h3>HTML</h3>
+          <h5>DOM</h5>
+          <div style="font-size: 0.8em">
+            <p class="fragment">Для чего нужна иерархическая структура?</p>
+            <ul>
+              <li class="fragment">Структура ради структуры!</li>
+              <li class="fragment">Анализ поисковыми движками</li>
+              <li class="fragment">Навигация с клавиатуры (доступность)</li>
+              <li class="fragment">Cкринридеры</li>
+            </ul>
+          </div>
         </section>
 
         <section data-auto-animate>
@@ -1790,7 +1864,7 @@
               </div>
             </div>
           </div>
-          <p class="tooltip">Текст с ссылками <code>a</code></p>
+          <p class="tooltip">Текст со ссылками <code>a</code></p>
         </section>
 
         <section data-auto-animate>
@@ -2017,7 +2091,7 @@
 
             <div>
               <div class="wrap">
-                <div id="ex1">
+                <div>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                   <article>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
@@ -2048,7 +2122,7 @@
                 </code></pre>
             </div>
             <div>
-              <pre data-id="code-animation"><code data-trim data-line-numbers>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="3">
                 /* css */
                 p {
                   color: red;
@@ -2070,7 +2144,7 @@
             </div>
           </div>
 
-          <p class="tooltip">Все параграфы имеют зеленый цвет</p>
+          <p class="tooltip">Все параграфы имеют красный цвет</p>
         </section>
 
         <section data-auto-animate>
@@ -2091,7 +2165,7 @@
                 </code></pre>
             </div>
             <div>
-              <pre data-id="code-animation"><code data-trim data-line-numbers>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="4">
                 /* css */
                 p {
                   color: red;
@@ -2135,7 +2209,7 @@
                 </code></pre>
             </div>
             <div>
-              <pre data-id="code-animation"><code data-trim data-line-numbers>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="2">
                 /* css */
                 article p {
                   color: red;
@@ -2179,7 +2253,7 @@
                 </code></pre>
             </div>
             <div>
-              <pre data-id="code-animation"><code data-trim data-line-numbers>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="2">
                 /* css */
                 div > p {
                   color: red;
@@ -2202,9 +2276,10 @@
             </div>
           </div>
 
-          <p class="tooltip">
-            Ссылаемся на все параграфы внутри тега <code>&lt;div&gt;</code>, на первом уровне вложенности
-          </p>
+          <div class="tooltip">
+            <p>Ссылаемся на все параграфы внутри тега <code>&lt;div&gt;</code>, на первом уровне вложенности</p>
+            <p class="fragment">Есть ли способо сослаться на конкретный html элемент?</p>
+          </div>
         </section>
 
         <section data-auto-animate>
@@ -2212,12 +2287,12 @@
           <h6>Примеры</h6>
           <div class="flex-horizontal flex-setup-2">
             <div class="text-085">
-              <pre><code class="language-html" data-trim data-line-numbers>
+              <pre id="id-attr-ex"><code data-trim data-line-numbers="5">
                   <!-- html -->
                   <div>
-                    <p >Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                     <article>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                      <p id="my-id">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                     </article>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
@@ -2225,9 +2300,9 @@
                 </code></pre>
             </div>
             <div>
-              <pre data-id="code-animation"><code data-trim data-line-numbers>
+              <pre class="sp-highlight" class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="2">
                 /* css */
-                div > p {
+                #my-id {
                   color: red;
                   font-style: italic;
                 }
@@ -2235,11 +2310,11 @@
             </div>
 
             <div>
-              <div class="wrap ex4">
+              <div class="wrap ex-id">
                 <div>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                   <article>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <p id="my-id">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
                   </article>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
@@ -2248,7 +2323,10 @@
             </div>
           </div>
 
-          <p class="tooltip">Ссылаемся на все параграфы внутри тега <code>&lt;div&gt;</code> на первом уровне вложенности</p>
+          <div class="tooltip">
+            <p>Да. Через аттрибут <code>id</code></p>
+            <p class="fragment"><code>id</code> должны быть уникальными в рамках <code>html</code> страницы</p>
+          </div>
         </section>
 
         <section data-auto-animate>
@@ -2256,42 +2334,241 @@
           <h6>Примеры</h6>
           <div class="flex-horizontal flex-setup-2">
             <div class="text-085">
+              <pre id="id-attr-ex"><code data-trim data-line-numbers="5">
+                  <!-- html -->
+                  <div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <article>
+                      <p id="my-id">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    </article>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre class="sp-highlight" class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="2">
+                /* css */
+                *[id="my-id"] {
+                  color: red;
+                  font-style: italic;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap custom_special_p_id_selector-ex">
+                <div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  <article>
+                    <p id="my-id">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  </article>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tooltip">
+            <p>
+              Другой способ, но эквивалентный результат. Мы можем использовать данный пример для того, чтобы сослаться на
+              любую node по имени аттрибуда и его значению
+            </p>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Примеры</h6>
+          <div class="flex-horizontal flex-setup-2">
+            <div class="text-085">
+              <pre class="sp-highlight" id="class-attr-ex"><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <article>
+                      <p class="my-class">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    </article>
+                    <p class="my-class">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre class="sp-highlight" class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="2">
+                /* css */
+                .my-class {
+                  color: red;
+                  font-style: italic;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap custom_special_class_selector-ex">
+                <div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  <article>
+                    <p class="my-class">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                  </article>
+                  <p class="my-class">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tooltip">
+            <p>Сослаться на все элементы определенного "класса". Нет ограничения на уникальность</p>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Примеры</h6>
+          <div class="flex-horizontal flex-setup-4">
+            <div>
               <pre><code data-trim data-line-numbers>
                   <!-- html -->
                   <div>
-                    <div>
-                      <p>Rectangle</p>
-                    </div>
-                    <div>
-                      <p>Circle</p>
-                    </div>
+                    <div></div>
+                    <div></div>
                   </div>
                 </code></pre>
             </div>
             <div>
               <pre data-id="code-animation"><code data-trim data-line-numbers>
                 /* css */
-                div div {
-                  background: red;
-                  width: 350px;
-                  color: white;
+                /* empty for now */
+              </code></pre>
+            </div>
+
+            <div style="width: 100%"></div>
+
+            <div>
+              <div class="wrap">
+                <div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+            <!-- <p class="tooltip">Ссылаемся на все <code>div</code> внутри <code>div</code></p> -->
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Примеры</h6>
+          <div class="flex-horizontal flex-setup-4">
+            <div>
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div class="figures">
+                    <div class="circle"></div>
+                    <div class="rectangle"></div>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                .figures {
+                  padding: 20px;
+                  border: 3px dashed blue;
+                }
+
+                .figures > * {
+                  border: 3px solid red;
+                  margin: 10px auto;
+                }
+
+                .figures .circle {
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                }
+                
+                .figures .rectangle {
+                  width: 70px;
+                  height: 40px;
                 }
               </code></pre>
             </div>
 
+            <div style="width: 100%"></div>
+
             <div>
-              <div class="wrap exsp1">
-                <div>
-                  <div>
-                    <p>Rectangle</p>
-                  </div>
-                  <div>
-                    <p>Circle</p>
-                  </div>
+              <div class="wrap ex-figures">
+                <div class="figures">
+                  <div class="circle"></div>
+                  <div class="rectangle"></div>
                 </div>
               </div>
             </div>
-            <p class="tooltip">Ссылаемся на все <code>div</code> внутри <code>div</code></p>
+            <p class="tooltip fragment">Теперь мы можем переиспользовать разметку</p>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Примеры</h6>
+          <div class="flex-horizontal flex-setup-4">
+            <div>
+              <pre><code data-trim data-line-numbers="6-9">
+                  <!-- html -->
+                  <div class="figures">
+                    <div class="circle"></div>
+                    <div class="rectangle"></div>
+                  </div>
+                  <div class="figures">
+                    <div class="circle"></div>
+                    <div class="rectangle"></div>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                .figures {
+                  padding: 20px;
+                  border: 3px dashed blue;
+                }
+
+                .figures > * {
+                  border: 3px solid red;
+                  margin: 10px auto;
+                }
+
+                .figures .circle {
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                }
+                
+                .figures .rectangle {
+                  width: 70px;
+                  height: 40px;
+                }
+              </code></pre>
+            </div>
+
+            <div style="width: 100%"></div>
+
+            <div>
+              <div class="wrap ex-figures">
+                <div class="figures">
+                  <div class="circle"></div>
+                  <div class="rectangle"></div>
+                </div>
+                <div class="figures">
+                  <div class="circle"></div>
+                  <div class="rectangle"></div>
+                </div>
+              </div>
+            </div>
+            <p class="tooltip">Просто добавим еще один блок с фигурами</p>
           </div>
         </section>
       </div>
@@ -2321,8 +2598,6 @@
       function createElementFromHTML(htmlString) {
         var div = document.createElement('div')
         div.innerHTML = htmlString.trim()
-
-        // Change this to div.childNodes to support multiple top-level nodes.
         return div.firstChild
       }
 
@@ -2343,13 +2618,13 @@
         const x = document.querySelectorAll(id).forEach((e) => {
           console.log(e.innerHTML)
           if (contents.includes(e.innerHTML)) {
-            e.setAttribute('style', 'opacity: 1; box-shadow: 0 7px 4px -2px var(--r-link-color);')
+            e.setAttribute('style', 'opacity: 1; box-shadow: 0 5px 2px -2px var(--r-link-color);')
           }
         })
       }
 
       function replaceNodeType3ToSpan(id) {
-        const x = document.querySelectorAll(`${id}, ${id} .hljs-tag`)
+        const x = document.querySelectorAll(`${id} *`)
 
         x.forEach((a) => {
           a.childNodes.forEach((e) => {
@@ -2370,7 +2645,8 @@
       manualHighlight('css-decl-1', ['  prop1:', '"value1"'])
       manualHighlight('css-decl-2', ['  prop2:', '"value2"'])
 
-      // TODO others
+      manualHighlight('id-attr-ex', ['"my-id"', 'id'])
+      manualHighlight('class-attr-ex', ['class', '"my-class"'])
     </script>
 
     <script>
@@ -2382,7 +2658,20 @@
           return
         }
 
-        const tagName = `<${e.getAttribute('override-tag-name') || e.tagName}>`.toLowerCase()
+        function addAttr(e, attrName) {
+          const attr = e.getAttribute(attrName)
+          if (!attr) {
+            return ''
+          }
+          return ` ${attrName}="${attr}"`
+        }
+
+        function addTagName(e) {
+          return e.getAttribute('override-tag-name') || e.tagName
+        }
+
+        const tagName = `<${addTagName(e)}${addAttr(e, 'id')}${addAttr(e, 'class')}>`.toLowerCase()
+
         e.setAttribute('tag-name', tagName)
       })
     </script>
