@@ -339,6 +339,32 @@
         color: red;
         font-style: italic;
       }
+
+      .wrap.cascade-ex p {
+        color: blue;
+        font-style: italic;
+        text-decoration: underline;
+      }
+
+      .wrap.cascade-ex-2 article p {
+        color: red;
+      }
+
+      .wrap.cascade-ex-2 p {
+        color: blue;
+        font-style: italic;
+        text-decoration: underline;
+      }
+
+      .wrap.cascade-ex-3 article p {
+        color: red;
+      }
+
+      .wrap.cascade-ex-3 p {
+        color: blue !important;
+        font-style: italic;
+        text-decoration: underline;
+      }
     </style>
   </head>
 
@@ -2622,6 +2648,161 @@
             <p class="tooltip">Просто добавим еще один блок с фигурами</p>
           </div>
         </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Каскад</h6>
+          <div class="flex-horizontal flex-setup-4">
+            <div>
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>Lorem ipsum dolor sit amet</p>
+                    <article>
+                      <p>Lorem ipsum dolor sit amet</p>
+                      <p>Lorem ipsum dolor sit amet</p>
+                    </article>
+                    <p>Lorem ipsum dolor sit amet</p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre class="sp-highlight" class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                p {
+                  color: blue;
+                  font-style: italic;
+                  text-decoration: underline;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap cascade-ex">
+                <div>
+                  <p>Lorem ipsum dolor sit amet</p>
+                  <article>
+                    <p>Lorem ipsum dolor sit amet</p>
+                    <p>Lorem ipsum dolor sit amet</p>
+                  </article>
+                  <p>Lorem ipsum dolor sit amet</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="tooltip">
+            <p>Сослаться на все элементы определенного "класса". Нет ограничения на уникальность</p>
+          </div> -->
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Каскад</h6>
+          <div class="flex-horizontal flex-setup-4">
+            <div>
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>Lorem ipsum dolor sit amet</p>
+                    <article>
+                      <p>Lorem ipsum dolor sit amet</p>
+                      <p>Lorem ipsum dolor sit amet</p>
+                    </article>
+                    <p>Lorem ipsum dolor sit amet</p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre data-id="code-animation"><code data-trim data-line-numbers>
+                /* css */
+                article p {
+                  color: red;
+                }
+
+                p {
+                  color: blue;
+                  font-style: italic;
+                  text-decoration: underline;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap cascade-ex-2">
+                <div>
+                  <p>Lorem ipsum dolor sit amet</p>
+                  <article>
+                    <p>Lorem ipsum dolor sit amet</p>
+                    <p>Lorem ipsum dolor sit amet</p>
+                  </article>
+                  <p>Lorem ipsum dolor sit amet</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tooltip">
+            <p>Коллизия по цвету параграфов в каскаде. Применяется свойство, чей селектор более специфичен</p>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>CSS/HTML</h3>
+          <h6>Каскад</h6>
+          <div class="flex-horizontal flex-setup-4">
+            <div>
+              <pre><code data-trim data-line-numbers>
+                  <!-- html -->
+                  <div>
+                    <p>Lorem ipsum dolor sit amet</p>
+                    <article>
+                      <p>Lorem ipsum dolor sit amet</p>
+                      <p>Lorem ipsum dolor sit amet</p>
+                    </article>
+                    <p>Lorem ipsum dolor sit amet</p>
+                  </div>
+                </code></pre>
+            </div>
+            <div>
+              <pre class="sp-highlight" data-id="code-animation"><code data-trim data-line-numbers="7">
+                /* css */
+                article p {
+                  color: red;
+                }
+
+                p {
+                  color: blue !important;
+                  font-style: italic;
+                  text-decoration: underline;
+                }
+              </code></pre>
+            </div>
+
+            <div>
+              <div class="wrap cascade-ex-3">
+                <div>
+                  <p>Lorem ipsum dolor sit amet</p>
+                  <article>
+                    <p>Lorem ipsum dolor sit amet</p>
+                    <p>Lorem ipsum dolor sit amet</p>
+                  </article>
+                  <p>Lorem ipsum dolor sit amet</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tooltip">
+            <p>Повышаем специфичность используя <code>!important</code>. Используйте только когда это действительно нужно</p>
+          </div>
+        </section>
+
+        <!-- <section
+          data-auto-animate
+          data-background-iframe="https://flukeout.github.io/"
+          data-background-interactive
+        ></section> -->
       </div>
     </div>
 
