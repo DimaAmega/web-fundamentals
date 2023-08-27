@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/white.min.css" id="theme" />
-    <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/atom-one-dark.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css" />
     <style>
       @import url(https://fonts.googleapis.com/css2?family=Comfortaa&display=swap);
 
@@ -2798,43 +2798,8 @@
           </div>
         </section>
 
-        <section
-          data-auto-animate
-          data-background-iframe="https://ru.learnlayout.com/position.html"
-          data-background-interactive
-        ></section>
-
-        <section data-auto-animate data-background-iframe="https://doka.guide/css/" data-background-interactive></section>
-
-        <section
-          data-auto-animate
-          data-background-iframe="https://flukeout.github.io/"
-          data-background-interactive
-        ></section>
-
-        <section>
-          <h3>CSS/HTML</h3>
-          <h6>Пример</h6>
-
-          <iframe
-            class="r-stretch"
-            height="300"
-            style="width: 100%"
-            scrolling="no"
-            title="Navigation Dotted Hover Effect"
-            src="https://codepen.io/dima143/embed/wvEYjWr?default-tab=html%2Cresult&editable=true&theme-id=dark"
-            frameborder="no"
-            loading="lazy"
-            allowtransparency="true"
-            allowfullscreen="true"
-          >
-            See the Pen <a href="https://codepen.io/dima143/pen/wvEYjWr"> Navigation Dotted Hover Effect</a> by Dmitry
-            Khorkin (<a href="https://codepen.io/dima143">@dima143</a>) on <a href="https://codepen.io">CodePen</a>.
-          </iframe>
-        </section>
-
         <section data-auto-animate>
-          <h3>Все :3</h3>
+          <h3>продолжение следует ...</h3>
           <h5>Полезные материалы по HTML/CSS:</h5>
 
           <ul style="list-style-type: none; margin: 0; padding: 0; font-size: 40px">
@@ -2887,7 +2852,6 @@
         replaceNodeType3ToSpan(`#${id} code`)
         unHighlight(`#${id} code span:not(:has(span))`)
         highlightByContent(`#${id} code span:not(:has(span))`, contents)
-        console.log('****')
       }
 
       function unHighlight(id) {
@@ -2898,7 +2862,6 @@
 
       function highlightByContent(id, contents) {
         const x = document.querySelectorAll(id).forEach((e) => {
-          console.log(e.innerHTML)
           if (contents.includes(e.innerHTML)) {
             e.setAttribute('style', 'opacity: 1; box-shadow: 0 5px 2px -2px var(--r-link-color);')
           }
@@ -2933,9 +2896,6 @@
 
     <script>
       document.querySelectorAll('.wrap *').forEach((e) => {
-        if (e.tagName === 'SPAN') {
-          console.log(e, e.getAttribute('ignore-label'))
-        }
         if (e.getAttribute('ignore-label')) {
           return
         }
